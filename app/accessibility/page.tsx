@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Accessibility" title="Accessible by Design" description="Accessibility principles and support information for the Avinya website." />;
+  return <SectionPage accent="orange" eyebrow="Accessibility" title="Accessible by design." description="We aim to make Avinya’s public website usable across devices, screen sizes and a wide range of accessibility needs." intro="The implementation uses semantic structure, keyboard-friendly controls, readable contrast, meaningful alternative text and touch targets designed for mobile use. Accessibility testing will remain part of production QA." bullets={["Keyboard-accessible navigation","Visible focus states","Meaningful image alternative text","Responsive typography and layout","Large mobile touch targets"]} cta="Contact us for support" />;
 }

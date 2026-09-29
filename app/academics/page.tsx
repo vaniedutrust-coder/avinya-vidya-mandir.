@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Academics" title="Foundational Learning" description="A child-centred foundational programme spanning Pre-Nursery through Class 1, aligned with the school’s educational philosophy." />;
+  return <SectionPage accent="gold" eyebrow="Academics" title="Strong foundations for every stage." description="A child-centred foundational programme spanning Pre-Nursery through Class 1, with learning experiences designed to build language, confidence, curiosity and independence." intro="Avinya brings together phonics, bilingual fluency, tactile discovery, purposeful play, movement and guided exploration. The goal is not simply readiness for the next class, but a love of learning that lasts." image="/images/classroom.jpg" secondaryImage="/images/discovery.jpg" bullets={["Pre-Nursery · Nursery · LKG · UKG · Class 1","Phonics and early literacy","Bilingual communication and expression","Mathematical thinking through concrete experiences","Discovery, art, music, movement and purposeful play"]} cta="Explore the journey" />;
 }

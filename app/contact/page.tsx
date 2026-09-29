@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Contact" title="Contact & Visit" description="Campus location, communication channels, office information and directions." />;
+  return <SectionPage accent="orange" eyebrow="Contact" title="Let's start a conversation." description="Connect with Avinya Vidya Mandir for admissions, visits, school information or general enquiries." intro="Choosing a school is personal. Our team is available to answer questions, arrange visits and help families understand the next step." image="/images/hero.jpg" secondaryImage="/images/life.jpg" bullets={["Admissions and visit enquiries","School information","Campus directions","Parent questions","Direct communication with the school team"]} cta="Plan a visit" />;
 }

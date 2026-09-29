@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="News & Events" title="School Updates" description="News, celebrations, events and stories from the Avinya community." />;
+  return <SectionPage accent="orange" eyebrow="News & Events" title="Stories from the Avinya community." description="School updates, celebrations, events and moments that capture the learning journey as it happens." intro="This space will bring together important school communications and stories from campus in a clear, parent-friendly format." image="/images/life.jpg" secondaryImage="/images/classroom.jpg" bullets={["School celebrations and events","Learning highlights","Parent communications","Community stories","Important announcements"]} cta="Explore updates" />;
 }

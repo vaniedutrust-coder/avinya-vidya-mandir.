@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --navy: #112A3A;
+  --navy: #1F5B46;
+  --ink: #173C35;
+  --green: #1F5B46;
+  --orange: #E85B2A;
+  --gold: #C99624;
   --navy-soft: #294656;
   --teal: #2F5D50;
   --teal-soft: #E8F0EC;
-  --amber: #B78B43;
+  --amber: #C99624;
   --amber-soft: #F4EBDD;
   --paper: #F7F4ED;
   --border: #E2DED5;
@@ -21,7 +25,7 @@ html { scroll-behavior: smooth; background: var(--white); }
 body {
   margin: 0;
   background: var(--white);
-  color: var(--navy);
+  color: var(--ink);
   font-family: var(--font-jakarta), Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +44,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--amber);
+  color: var(--gold);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .22em;

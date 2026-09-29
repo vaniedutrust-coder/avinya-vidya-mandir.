@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Care & Safety" title="Nurturing Care" description="The school’s approach to hygiene, safety, medical preparedness, nutrition and attentive care." />;
+  return <SectionPage accent="green" eyebrow="Care & Safety" title="Care is part of the curriculum." description="A child-first environment built around attentive adults, hygiene, safety, medical preparedness and thoughtful everyday routines." intro="Young children learn best when they feel secure. Avinya brings care and learning together through practical systems and a culture of attentiveness." image="/images/classroom.jpg" secondaryImage="/images/hero.jpg" bullets={["Pediatric-grade sanitization practices","Dedicated medical preparedness","Full female support care","360° CCTV monitoring","Safe, supervised movement and play"]} cta="Understand our care" />;
 }

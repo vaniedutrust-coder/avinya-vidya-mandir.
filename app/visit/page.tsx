@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Visit Avinya" title="Come Experience Avinya" description="Plan a campus visit, explore the 360° experience and connect with the admissions team." />;
+  return <SectionPage accent="orange" eyebrow="Visit Avinya" title="Come experience the school in person." description="Walk through the campus, see the learning spaces, meet the team and understand what makes the Avinya environment feel different." intro="A visit is the best way to experience the scale, atmosphere and care of the school. You can also explore the campus remotely through our 360° experience." image="/images/hero.jpg" secondaryImage="/images/discovery.jpg" bullets={["Meet the admissions team","Explore classrooms and activity spaces","Ask questions about academics and care","Experience the campus environment","Open the 360° tour before your visit"]} cta="Plan your visit" />;
 }

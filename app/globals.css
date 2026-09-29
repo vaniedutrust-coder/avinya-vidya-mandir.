@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --navy: #0B2038;
-  --navy-soft: #173652;
-  --teal: #4EA685;
-  --teal-deep: #2F705D;
-  --amber: #F7B538;
-  --terracotta: #E05A36;
-  --alabaster: #FDFBF7;
-  --sand: #F4EFE7;
-  --mist: #EDF4EF;
-  --border: #EAE6DF;
+  --navy: #112A3A;
+  --navy-soft: #294656;
+  --teal: #6F8F84;
+  --teal-deep: #2F5D50;
+  --amber: #C7A76D;
+  --terracotta: #B66A55;
+  --alabaster: #FAF7F0;
+  --sand: #EEE7DD;
+  --mist: #EEF3F0;
+  --border: #DED6C9;
   --white: #FFFFFF;
 }
 
@@ -29,10 +29,11 @@ body {
   color: var(--navy);
   font-family: var(--font-jakarta), Arial, sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: rgba(78, 166, 133, 0.22);
+  background: rgba(111, 143, 132, 0.22);
 }
 
 .container-avinya {
@@ -54,23 +55,23 @@ body {
 
 .grid-paper {
   background:
-    linear-gradient(rgba(11, 32, 56, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(11, 32, 56, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(17, 42, 58, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 42, 58, 0.025) 1px, transparent 1px),
     var(--sand);
   background-size: 42px 42px;
 }
 
 .hero-grid {
   background:
-    radial-gradient(circle at 12% 18%, rgba(247,181,56,0.14), transparent 24%),
-    radial-gradient(circle at 88% 72%, rgba(78,166,133,0.16), transparent 28%),
+    radial-gradient(circle at 12% 18%, rgba(199, 167, 109, 0.16), transparent 24%),
+    radial-gradient(circle at 88% 72%, rgba(111, 143, 132, 0.15), transparent 28%),
     var(--alabaster);
 }
 
 .navy-glow {
   background:
-    radial-gradient(circle at 15% 20%, rgba(78,166,133,0.16), transparent 24%),
-    radial-gradient(circle at 85% 75%, rgba(247,181,56,0.12), transparent 24%),
+    radial-gradient(circle at 15% 20%, rgba(111, 143, 132, 0.16), transparent 24%),
+    radial-gradient(circle at 85% 75%, rgba(199, 167, 109, 0.12), transparent 24%),
     var(--navy);
 }
 
@@ -80,7 +81,7 @@ body {
   border-radius: 34px;
   border: 1px solid var(--border);
   background: var(--white);
-  box-shadow: 0 24px 70px rgba(11, 32, 56, 0.10);
+  box-shadow: 0 24px 70px rgba(17, 42, 58, 0.10);
 }
 
 .image-frame img {

@@ -17,25 +17,25 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/20 bg-brand-navy/90 text-white backdrop-blur-xl">
-      <div className="container-avinya flex h-[76px] items-center justify-between gap-6">
-        <Link href="/" className="flex min-w-0 items-center gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-brand-amber/60 bg-white/10 font-display text-lg text-brand-amber">
-            A
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/15 bg-brand-navy/90 text-white backdrop-blur-xl">
+      <div className="container-avinya flex h-[78px] items-center justify-between gap-6">
+        <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Avinya Vidya Mandir home">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white">
+            <img src="/images/logo.webp" alt="" className="h-full w-full object-contain p-1" />
           </div>
-          <div className="min-w-0">
-            <div className="font-display text-[15px] tracking-[0.14em]">AVINYA</div>
-            <div className="truncate text-[10px] uppercase tracking-[0.24em] text-white/65">Vidya Mandir</div>
+          <div className="min-w-0 leading-none">
+            <div className="font-display text-[15px] tracking-[0.16em]">AVINYA</div>
+            <div className="mt-1 truncate text-[10px] uppercase tracking-[0.23em] text-white/60">Vidya Mandir</div>
           </div>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex">
           {links.map(([label, href]) => (
-            <Link key={href} href={href} className="text-[13px] font-semibold text-white/80 transition hover:text-white">
+            <Link key={href} href={href} className="text-[13px] font-semibold text-white/78 transition hover:text-white">
               {label}
             </Link>
           ))}
-          <a href="#book-visit" className="rounded-full bg-brand-amber px-5 py-3 text-[13px] font-bold text-brand-navy transition hover:-translate-y-0.5">
+          <a href="#book-visit" className="rounded-full bg-brand-amber px-5 py-3 text-[13px] font-bold text-brand-navy shadow-soft transition hover:-translate-y-0.5">
             Book a Visit
           </a>
         </nav>

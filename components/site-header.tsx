@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const links = [
   ["About Us", "/about"], ["Academics", "/academics"], ["Campus", "/campus"],
-  ["Care & Safety", "/care-and-safety"], ["Admissions", "/admissions"], ["Contact", "/contact"]
+  ["Care & Safety", "/care-and-safety"], ["Life at Avinya", "/life-at-avinya"], ["Admissions", "/admissions"], ["Contact", "/contact"]
 ];
 
 const accents: Record<string, string> = {

@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Privacy Policy" title="Privacy" description="How information submitted through the public website will be handled." />;
+  return <SectionPage accent="green" eyebrow="Privacy Policy" title="Your information, handled with care." description="This public website is designed to collect only the information needed to respond to enquiries, visits and admissions conversations." intro="Any form or communication workflow should clearly explain its purpose, collect appropriate consent and limit access to authorised school personnel. Production data handling, retention and deletion rules will be documented before launch." bullets={["Purpose-limited enquiry collection","Consent-aware communication","Restricted administrative access","Reasonable retention and deletion controls"]} cta="Contact the school" />;
 }

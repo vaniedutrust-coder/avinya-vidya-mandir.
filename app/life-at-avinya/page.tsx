@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Life at Avinya" title="School Life" description="Real moments of learning, play, celebrations, creativity and community." />;
+  return <SectionPage accent="orange" eyebrow="Life at Avinya" title="Learning is lived, not just taught." description="A school day filled with making, movement, conversation, celebration, discovery and the small moments that help children become confident." intro="From classroom exploration to play, music, art and community celebrations, children have space to participate actively and express themselves." image="/images/life.jpg" secondaryImage="/images/discovery.jpg" bullets={["Purposeful play and movement","Creative expression through art and music","Celebrations and school community moments","Discovery-led activities","Opportunities to speak, make and collaborate"]} cta="See school life" />;
 }

@@ -6,50 +6,63 @@ import { ArrowRight, CalendarDays, CheckCircle2, X } from "lucide-react";
 export function BookVisit() {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const titleId = useId();
-  const dialogRef = useRef<HTMLDivElement>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (!open) return;
     firstFieldRef.current?.focus();
-
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
-
     document.addEventListener("keydown", onKeyDown);
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  async function submit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setLoading(true);
+    setError("");
+    const form = new FormData(event.currentTarget);
+    try {
+      const response = await fetch("/api/visit-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          parentName: form.get("parentName"),
+          phone: form.get("phone"),
+          grade: form.get("grade"),
+          preferredDate: form.get("preferredDate"),
+          consent: form.get("consent") === "on",
+          website: form.get("website")
+        })
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Unable to submit your request.");
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to submit your request.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <>
-      <button
-        type="button"
-        onClick={() => {
-          setSubmitted(false);
-          setOpen(true);
-        }}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-bold text-white shadow-lift transition duration-300 hover:-translate-y-0.5" style={{ background: "var(--page-accent, #1F5B46)", borderColor: "var(--page-accent, #1F5B46)" }}
-      >
+      <button type="button" onClick={() => { setSubmitted(false); setError(""); setOpen(true); }}
+        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-bold text-white shadow-lift transition duration-300 hover:-translate-y-0.5"
+        style={{ background: "var(--page-accent, #1F5B46)", borderColor: "var(--page-accent, #1F5B46)" }}>
         <CalendarDays size={17} strokeWidth={1.8} />
         Book a School Visit
       </button>
 
       {open && (
-        <div
-          className="fixed inset-0 z-[100] flex items-end justify-center bg-brand-navy/70 p-0 backdrop-blur-md sm:items-center sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          onMouseDown={(event) => {
-            if (event.currentTarget === event.target) setOpen(false);
-          }}
-        >
-          <div
-            ref={dialogRef}
-            className="w-full max-w-xl overflow-hidden rounded-t-[30px] border border-brand-border bg-brand-alabaster shadow-2xl sm:rounded-[30px]"
-          >
+        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-brand-navy/70 p-0 backdrop-blur-md sm:items-center sm:p-6"
+          role="dialog" aria-modal="true" aria-labelledby={titleId}
+          onMouseDown={(event) => { if (event.currentTarget === event.target) setOpen(false); }}>
+          <div className="w-full max-w-xl overflow-hidden rounded-t-[30px] border border-brand-border bg-brand-alabaster shadow-2xl sm:rounded-[30px]">
             <div className="px-6 py-6 text-white sm:px-8" style={{ background: "var(--page-accent, #1F5B46)" }}>
               <div className="flex items-start justify-between gap-5">
                 <div>
@@ -70,45 +83,43 @@ export function BookVisit() {
                     <CheckCircle2 size={28} />
                   </div>
                   <h3 className="mt-5 font-display text-2xl text-brand-ink">Thank you.</h3>
-                  <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-brand-ink/60">Your visit request has been captured for the current prototype. We’ll connect this to the admissions desk next.</p>
+                  <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-brand-ink/60">Your visit request has been sent to the Avinya admissions desk. We’ll be in touch to confirm the visit.</p>
                   <button type="button" onClick={() => setOpen(false)} className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full px-5 py-3 text-sm font-bold text-white" style={{ background: "var(--page-accent, #1F5B46)" }}>
                     Close <ArrowRight size={16} />
                   </button>
                 </div>
               ) : (
-                <form className="space-y-5" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
+                <form className="space-y-5" onSubmit={submit}>
+                  <input name="website" tabIndex={-1} autoComplete="off" className="absolute -left-[9999px] h-px w-px opacity-0" aria-hidden="true" />
                   <label className="block">
                     <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Parent Name</span>
-                    <input ref={firstFieldRef} className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="Your name" required />
+                    <input name="parentName" ref={firstFieldRef} className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="Your name" required />
                   </label>
                   <label className="block">
                     <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">WhatsApp / Phone</span>
-                    <input className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="+91 ..." inputMode="tel" required />
+                    <input name="phone" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="+91 ..." inputMode="tel" required />
                   </label>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
                       <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Grade</span>
-                      <select className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required defaultValue="">
+                      <select name="grade" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required defaultValue="">
                         <option value="" disabled>Select grade</option>
-                        <option>Pre-Nursery</option>
-                        <option>Nursery</option>
-                        <option>LKG</option>
-                        <option>UKG</option>
-                        <option>Class 1</option>
+                        <option>Pre-Nursery</option><option>Nursery</option><option>LKG</option><option>UKG</option><option>Class 1</option>
                       </select>
                     </label>
                     <label className="block">
                       <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Preferred Date</span>
-                      <input type="date" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required />
+                      <input name="preferredDate" type="date" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required />
                     </label>
                   </div>
                   <label className="flex items-start gap-3 text-xs leading-5 text-brand-ink/52">
-                    <input type="checkbox" required className="mt-0.5 h-4 w-4 rounded border-brand-border accent-brand-teal-deep" />
+                    <input name="consent" type="checkbox" required className="mt-0.5 h-4 w-4 rounded border-brand-border accent-brand-teal-deep" />
                     <span>I agree to be contacted regarding my Avinya enquiry and school visit.</span>
                   </label>
-                  <button className="group flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-navy px-5 py-3 text-sm font-bold text-white shadow-lift transition hover:bg-brand-navy-soft" type="submit">
-                    Request Visit
-                    <ArrowRight size={17} className="transition group-hover:translate-x-0.5" />
+                  {error && <p role="alert" className="rounded-xl border border-brand-terracotta/30 bg-brand-terracotta-soft px-4 py-3 text-sm text-brand-ink">{error}</p>}
+                  <button disabled={loading} className="group flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-navy px-5 py-3 text-sm font-bold text-white shadow-lift transition hover:bg-brand-navy-soft disabled:cursor-wait disabled:opacity-60" type="submit">
+                    {loading ? "Sending…" : "Request Visit"}
+                    {!loading && <ArrowRight size={17} className="transition group-hover:translate-x-0.5" />}
                   </button>
                   <p className="text-center text-[11px] leading-5 text-brand-ink/40">Your details are intended for Avinya Vidya Mandir admissions communication.</p>
                 </form>

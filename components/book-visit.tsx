@@ -30,7 +30,7 @@ export function BookVisit() {
           setSubmitted(false);
           setOpen(true);
         }}
-        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-brand-amber/45 bg-brand-amber px-6 py-3 text-sm font-bold text-brand-navy shadow-lift transition duration-300 hover:-translate-y-0.5 hover:bg-[#D0B37E]"
+        className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-6 py-3 text-sm font-bold text-white shadow-lift transition duration-300 hover:-translate-y-0.5" style={{ background: "var(--page-accent, #1F5B46)", borderColor: "var(--page-accent, #1F5B46)" }}
       >
         <CalendarDays size={17} strokeWidth={1.8} />
         Book a School Visit
@@ -50,10 +50,10 @@ export function BookVisit() {
             ref={dialogRef}
             className="w-full max-w-xl overflow-hidden rounded-t-[30px] border border-brand-border bg-brand-alabaster shadow-2xl sm:rounded-[30px]"
           >
-            <div className="bg-brand-navy px-6 py-6 text-white sm:px-8">
+            <div className="px-6 py-6 text-white sm:px-8" style={{ background: "var(--page-accent, #1F5B46)" }}>
               <div className="flex items-start justify-between gap-5">
                 <div>
-                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.24em] text-brand-amber">Come experience Avinya</p>
+                  <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.24em] text-white/80">Come experience Avinya</p>
                   <h2 id={titleId} className="font-display text-2xl leading-tight sm:text-3xl">Book a School Visit</h2>
                   <p className="mt-3 max-w-md text-sm leading-6 text-white/60">Tell us a little about your child and preferred visit date. Our admissions team can take it from there.</p>
                 </div>
@@ -66,29 +66,29 @@ export function BookVisit() {
             <div className="p-6 sm:p-8">
               {submitted ? (
                 <div className="py-8 text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-teal-soft text-brand-teal-deep">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full text-white" style={{ background: "var(--page-accent, #1F5B46)" }}>
                     <CheckCircle2 size={28} />
                   </div>
-                  <h3 className="mt-5 font-display text-2xl text-brand-navy">Thank you.</h3>
-                  <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-brand-navy/60">Your visit request has been captured for the current prototype. We’ll connect this to the admissions desk next.</p>
-                  <button type="button" onClick={() => setOpen(false)} className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-navy px-5 py-3 text-sm font-bold text-white hover:bg-brand-navy-soft">
+                  <h3 className="mt-5 font-display text-2xl text-brand-ink">Thank you.</h3>
+                  <p className="mx-auto mt-3 max-w-sm text-sm leading-7 text-brand-ink/60">Your visit request has been captured for the current prototype. We’ll connect this to the admissions desk next.</p>
+                  <button type="button" onClick={() => setOpen(false)} className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full px-5 py-3 text-sm font-bold text-white" style={{ background: "var(--page-accent, #1F5B46)" }}>
                     Close <ArrowRight size={16} />
                   </button>
                 </div>
               ) : (
                 <form className="space-y-5" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}>
                   <label className="block">
-                    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-navy/48">Parent Name</span>
-                    <input ref={firstFieldRef} className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-navy outline-none transition placeholder:text-brand-navy/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="Your name" required />
+                    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Parent Name</span>
+                    <input ref={firstFieldRef} className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="Your name" required />
                   </label>
                   <label className="block">
-                    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-navy/48">WhatsApp / Phone</span>
-                    <input className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-navy outline-none transition placeholder:text-brand-navy/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="+91 ..." inputMode="tel" required />
+                    <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">WhatsApp / Phone</span>
+                    <input className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none transition placeholder:text-brand-ink/35 focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" placeholder="+91 ..." inputMode="tel" required />
                   </label>
                   <div className="grid gap-5 sm:grid-cols-2">
                     <label className="block">
-                      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-navy/48">Grade</span>
-                      <select className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-navy outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required defaultValue="">
+                      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Grade</span>
+                      <select className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required defaultValue="">
                         <option value="" disabled>Select grade</option>
                         <option>Pre-Nursery</option>
                         <option>Nursery</option>
@@ -98,11 +98,11 @@ export function BookVisit() {
                       </select>
                     </label>
                     <label className="block">
-                      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-navy/48">Preferred Date</span>
-                      <input type="date" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-navy outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required />
+                      <span className="mb-2 block text-xs font-bold uppercase tracking-[0.14em] text-brand-ink/48">Preferred Date</span>
+                      <input type="date" className="h-12 w-full rounded-xl border border-brand-border bg-white px-4 text-sm text-brand-ink outline-none focus:border-brand-teal-deep focus:ring-2 focus:ring-brand-teal/10" required />
                     </label>
                   </div>
-                  <label className="flex items-start gap-3 text-xs leading-5 text-brand-navy/52">
+                  <label className="flex items-start gap-3 text-xs leading-5 text-brand-ink/52">
                     <input type="checkbox" required className="mt-0.5 h-4 w-4 rounded border-brand-border accent-brand-teal-deep" />
                     <span>I agree to be contacted regarding my Avinya enquiry and school visit.</span>
                   </label>
@@ -110,7 +110,7 @@ export function BookVisit() {
                     Request Visit
                     <ArrowRight size={17} className="transition group-hover:translate-x-0.5" />
                   </button>
-                  <p className="text-center text-[11px] leading-5 text-brand-navy/40">Your details are intended for Avinya Vidya Mandir admissions communication.</p>
+                  <p className="text-center text-[11px] leading-5 text-brand-ink/40">Your details are intended for Avinya Vidya Mandir admissions communication.</p>
                 </form>
               )}
             </div>

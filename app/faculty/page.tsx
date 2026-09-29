@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Faculty & Mentorship" title="Mentorship" description="The people and practices behind Avinya’s close teacher-child attention." />;
+  return <SectionPage accent="green" eyebrow="Faculty & Mentorship" title="Every child deserves to be known." description="Close teacher-child relationships are central to the Avinya experience, supported by a 1:10 student-to-teacher mentorship approach." intro="Our educators are not simply instructors. They observe, encourage, guide and build the trust that allows young children to take their next step with confidence." image="/images/classroom.jpg" secondaryImage="/images/life.jpg" bullets={["1:10 student-to-teacher mentorship","Close observation of individual learning needs","Warm, respectful communication with families","Foundational-stage teaching practices","A culture of continuous professional growth"]} cta="Meet our approach" />;
 }

@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Campus" title="Campus & Smart Infrastructure" description="A visual exploration of classrooms, discovery spaces, play environments and the embedded 360° campus experience." />;
+  return <SectionPage accent="green" eyebrow="Campus" title="A place to belong, explore and grow." description="Bright classrooms, smart learning environments, discovery spaces and purposeful play areas come together in a campus designed around young learners." intro="The physical environment is part of the learning experience. Spaces are planned to feel safe, welcoming and stimulating without overwhelming the child." image="/images/hero.jpg" secondaryImage="/images/discovery.jpg" bullets={["Interactive smart classrooms with child-calibrated touch panels","Impact-cushioned gross-motor play turf","Discovery studios and activity spaces","360° virtual campus experience","A clean, carefully maintained environment"]} cta="Take the campus tour" />;
 }

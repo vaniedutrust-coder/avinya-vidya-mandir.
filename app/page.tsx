@@ -20,18 +20,26 @@ export default function HomePage() {
       <SiteHeader />
 
       <section className="hero-grid border-b border-brand-border pt-[80px]">
-        <div className="container-avinya grid min-h-[710px] items-center gap-14 py-14 lg:grid-cols-[0.82fr_1.18fr] lg:py-20">
+        <div className="container-avinya grid min-h-[730px] items-center gap-14 py-12 lg:grid-cols-[0.78fr_1.22fr] lg:py-16">
           <div className="order-2 lg:order-1">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="h-px w-10 bg-brand-teal" />
-              <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-teal">Avinya Vidya Mandir · Delhi</p>
+            <div className="mb-7 flex items-center gap-3">
+              <div className="h-px w-10 bg-brand-amber" />
+              <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-brand-teal-deep">
+                Pre-Nursery to Class 1 · Delhi
+              </p>
             </div>
 
-            <p className="font-display text-lg leading-relaxed text-brand-teal-deep sm:text-xl">
-              Rooted in Values, Rising in Excellence
-            </p>
+            <div className="flex items-center gap-4">
+              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-brand-border bg-white p-1 shadow-card">
+                <img src="/images/logo.webp" alt="Avinya Vidya Mandir crest" className="h-full w-full object-contain" />
+              </div>
+              <div>
+                <p className="font-display text-sm tracking-[0.18em] text-brand-navy">AVINYA VIDYA MANDIR</p>
+                <p className="mt-1 text-xs text-brand-navy/45">Rooted in Values, Rising in Excellence</p>
+              </div>
+            </div>
 
-            <h1 className="mt-5 max-w-2xl font-display text-4xl leading-[1.08] tracking-[-0.025em] text-brand-navy sm:text-6xl lg:text-[4.5rem]">
+            <h1 className="mt-8 max-w-2xl font-display text-[2.8rem] leading-[1.08] tracking-[-0.03em] text-brand-navy sm:text-6xl lg:text-[4.75rem]">
               A thoughtful beginning for a remarkable journey.
             </h1>
 
@@ -41,13 +49,15 @@ export default function HomePage() {
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <BookVisit />
-              <Link href="/campus" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-brand-border bg-white px-6 py-3 text-sm font-bold text-brand-navy shadow-sm transition hover:-translate-y-0.5 hover:shadow-lift">
-                Explore the Campus <ArrowRight size={17} />
+              <Link href="/academics" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-brand-border bg-white px-6 py-3 text-sm font-bold text-brand-navy shadow-sm transition hover:-translate-y-0.5 hover:shadow-lift">
+                Explore the Learning Journey <ArrowRight size={17} />
               </Link>
             </div>
 
-            <div className="mt-9 flex items-start gap-4 rounded-2xl border border-brand-border bg-white/75 px-4 py-4 sm:max-w-lg">
-              <div className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-brand-amber" />
+            <div className="mt-9 flex items-start gap-4 rounded-2xl border border-brand-border bg-white/80 px-4 py-4 shadow-card sm:max-w-lg">
+              <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-amber-soft text-brand-teal-deep">
+                <span className="font-display text-sm">ॐ</span>
+              </div>
               <div>
                 <div className="font-display text-sm text-brand-navy">सा विद्या या विमुक्तये</div>
                 <div className="mt-1 text-xs leading-5 text-brand-navy/45">Knowledge that opens the way to freedom.</div>
@@ -57,31 +67,26 @@ export default function HomePage() {
 
           <div className="order-1 lg:order-2">
             <div className="relative mx-auto max-w-2xl">
-              <div className="absolute -left-5 top-10 hidden h-28 w-28 rounded-full border border-brand-teal/20 bg-brand-teal-soft lg:block" />
-              <div className="image-frame relative aspect-[4/3] overflow-hidden lg:aspect-[1.08/1]">
+              <div className="absolute -right-7 -top-7 h-24 w-24 rounded-full border border-brand-amber/25 bg-brand-amber-soft/70" />
+              <div className="absolute -bottom-8 -left-8 hidden h-32 w-32 rounded-full border border-brand-teal/18 bg-brand-teal-soft/70 lg:block" />
+
+              <div className="image-frame relative aspect-[4/3] overflow-hidden border-brand-border/90 lg:aspect-[1.08/1]">
                 <img
                   src="/images/hero.jpg"
                   alt="Children participating in a school celebration at Avinya Vidya Mandir"
-                  className="h-full object-cover"
+                  className="h-full object-cover transition duration-700 hover:scale-[1.015]"
                   fetchPriority="high"
                 />
-                <div className="absolute left-5 top-5 flex items-center gap-3 rounded-2xl border border-white/35 bg-white/88 px-3 py-2.5 shadow-lift backdrop-blur-md sm:left-7 sm:top-7">
-                  <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-white">
-                    <img src="/images/logo.webp" alt="" className="h-full w-full object-contain p-1" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-teal-deep">Avinya</div>
-                    <div className="text-xs font-semibold text-brand-navy/75">A place to begin well.</div>
-                  </div>
+
+                <div className="absolute left-5 top-5 rounded-2xl border border-white/40 bg-white/90 px-4 py-3 shadow-lift backdrop-blur-md sm:left-7 sm:top-7">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-teal-deep">A place to begin well</div>
+                  <div className="mt-1 font-display text-base text-brand-navy">Childhood with purpose.</div>
                 </div>
 
-                <div className="absolute inset-x-4 bottom-4 rounded-2xl border border-white/20 bg-brand-navy/88 p-4 text-white shadow-lift backdrop-blur-md sm:inset-x-6 sm:bottom-6 sm:p-5">
-                  <div className="flex items-end justify-between gap-5">
-                    <div>
-                      <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-amber">At Avinya</div>
-                      <div className="mt-1 font-display text-lg sm:text-xl">Childhood with purpose.</div>
-                    </div>
-                    <div className="hidden text-right text-xs leading-5 text-white/60 sm:block">Real learning.<br />Real relationships.</div>
+                <div className="absolute bottom-5 right-5 hidden w-48 rounded-2xl border border-white/25 bg-brand-navy/90 p-4 text-white shadow-lift backdrop-blur-md sm:block">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-amber">At Avinya</div>
+                  <div className="mt-2 text-xs leading-6 text-white/65">
+                    Personal attention, meaningful discovery and room to grow.
                   </div>
                 </div>
               </div>

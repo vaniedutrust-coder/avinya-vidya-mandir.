@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="About Avinya" title="Our Story" description="The founding philosophy, values, name significance and leadership story behind Avinya Vidya Mandir." />;
+  return <SectionPage accent="orange" eyebrow="About Avinya" title="Where curiosity becomes confidence." description="Avinya Vidya Mandir is a boutique foundational school in Delhi, built around close relationships, strong values and a thoughtful beginning to a child’s educational journey." intro="The name Avinya reflects a forward-looking spirit: children are encouraged to discover, express, question and grow while remaining rooted in kindness, respect and responsibility." image="/images/life.jpg" secondaryImage="/images/classroom.jpg" bullets={["A warm, personal school environment","Foundational learning aligned with the needs of young children","A culture of curiosity, confidence and character","An organic journey toward a continuous K–12 pathway"]} cta="Meet Avinya" />;
 }

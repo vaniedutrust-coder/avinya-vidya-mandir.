@@ -1,0 +1,9 @@
+import { redirect } from "next/navigation";
+import { getSupabaseAdmin } from "../../../lib/supabase-admin";
+
+export default async function BuilderPage(){
+ const db=getSupabaseAdmin(); const {data:{user}}=await db.auth.getUser(); if(!user) redirect("/admin/login");
+ const {data:profile}=await db.from("admin_profiles").select("active,role").eq("user_id",user.id).maybeSingle(); if(!profile?.active||!["super_admin","admin","editor"].includes(profile.role)) redirect("/admin");
+ const {data:pages}=await db.from("content_pages").select("id,slug,title,status,updated_at").order("updated_at",{ascending:false});
+ return <main className="min-h-screen bg-brand-alabaster px-5 py-10 text-brand-ink"><div className="mx-auto max-w-5xl"><a href="/admin" className="text-sm font-bold text-brand-teal-deep">← Dashboard</a><div className="mt-6"><p className="editorial-kicker text-brand-amber">Content</p><h1 className="mt-3 font-display text-4xl">Content builder</h1></div><div className="mt-8 overflow-x-auto border border-brand-border bg-white shadow-card"><table className="min-w-full text-left text-sm"><thead className="border-b border-brand-border bg-brand-mist"><tr><th className="px-5 py-3">Page</th><th className="px-5 py-3">Slug</th><th className="px-5 py-3">Status</th><th className="px-5 py-3">Updated</th></tr></thead><tbody>{(pages??[]).map(p=><tr key={p.id} className="border-b border-brand-border/70"><td className="px-5 py-4 font-semibold">{p.title}</td><td className="px-5 py-4 text-brand-ink/55">/{p.slug}</td><td className="px-5 py-4 capitalize">{p.status}</td><td className="px-5 py-4 text-xs text-brand-ink/50">{new Date(p.updated_at).toLocaleString("en-IN")}</td></tr>)}</tbody></table>{!(pages?.length) && <p className="p-6 text-sm text-brand-ink/50">No CMS pages have been seeded yet.</p>}</div></div></main>;
+}

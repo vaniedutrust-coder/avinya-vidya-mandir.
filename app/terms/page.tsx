@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Terms" title="Website Terms" description="Terms governing use of the Avinya Vidya Mandir website." />;
+  return <SectionPage accent="gold" eyebrow="Terms" title="Website Terms of Use." description="The Avinya Vidya Mandir website provides school information, admissions guidance and a way for families to contact the institution." intro="Information published on the website should be read as general institutional information. Admissions, eligibility, dates, fees and other official matters remain subject to the school’s current published communications and applicable regulations." bullets={["Use the website lawfully and respectfully","Do not misuse enquiry or communication forms","Official admissions information takes precedence","School content remains subject to update"]} cta="Contact Avinya" />;
 }

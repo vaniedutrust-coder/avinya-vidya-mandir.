@@ -5,24 +5,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "brand-navy": "#0B2038",
-        "brand-navy-soft": "#173652",
-        "brand-teal": "#4EA685",
-        "brand-teal-deep": "#2F705D",
-        "brand-teal-soft": "#EAF5EF",
-        "brand-amber": "#F7B538",
-        "brand-amber-soft": "#FBEDC8",
-        "brand-terracotta": "#E05A36",
-        "brand-terracotta-soft": "#F7E4DC",
-        "brand-alabaster": "#FDFBF7",
-        "brand-sand": "#F4EFE7",
-        "brand-mist": "#EDF4EF",
-        "brand-border": "#EAE6DF",
+        "brand-navy": "#112A3A",
+        "brand-navy-soft": "#294656",
+        "brand-teal": "#6F8F84",
+        "brand-teal-deep": "#2F5D50",
+        "brand-teal-soft": "#E8F0EC",
+        "brand-amber": "#C7A76D",
+        "brand-amber-soft": "#F3EBDD",
+        "brand-terracotta": "#B66A55",
+        "brand-terracotta-soft": "#F4E6E0",
+        "brand-alabaster": "#FAF7F0",
+        "brand-sand": "#EEE7DD",
+        "brand-mist": "#EEF3F0",
+        "brand-border": "#DED6C9",
         "brand-white": "#FFFFFF"
       },
       boxShadow: {
-        soft: "0 24px 70px rgba(11, 32, 56, 0.10)",
-        lift: "0 14px 40px rgba(11, 32, 56, 0.08)"
+        soft: "0 24px 70px rgba(17, 42, 58, 0.10)",
+        lift: "0 14px 42px rgba(17, 42, 58, 0.10)",
+        card: "0 8px 24px rgba(17, 42, 58, 0.07)"
       }
     }
   },

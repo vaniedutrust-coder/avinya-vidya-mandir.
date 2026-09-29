@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Mandatory Public Disclosure" title="Institutional Compliance" description="Public regulatory disclosures, certificates and institutional documents." />;
+  return <SectionPage accent="gold" eyebrow="Mandatory Public Disclosure" title="Institutional information, clearly presented." description="A dedicated space for required public disclosures, certificates, affiliations and institutional documents." intro="The final production version should publish only current, verified documents and clearly identify the relevant academic session, issuing authority and document date." bullets={["Affiliation and recognition information","School management details","Infrastructure and safety information","Required certificates and declarations","Session-specific public documents"]} cta="Return to admissions" />;
 }

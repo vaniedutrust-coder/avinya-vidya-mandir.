@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Admissions" title="Join Avinya" description="Eligibility, documents, admission process and the simple path to a school visit." />;
+  return <SectionPage accent="gold" eyebrow="Admissions 2026–2027" title="Give your child a thoughtful beginning." description="Discover the school, meet the team and understand the environment before taking the next step." intro="We keep the admissions journey simple and personal. Begin with a visit, understand the programme, and speak with the school team about the right starting point for your child." image="/images/life.jpg" secondaryImage="/images/hero.jpg" bullets={["Pre-Nursery through Class 1","School visit and interaction","Application and document guidance","Age eligibility and class placement support","Direct admissions communication"]} cta="Start with a visit" />;
 }

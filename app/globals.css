@@ -12,19 +12,53 @@
 }
 
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--alabaster); color: var(--navy); font-family: var(--font-jakarta), Arial, sans-serif; }
+
+body {
+  margin: 0;
+  background: var(--alabaster);
+  color: var(--navy);
+  font-family: var(--font-jakarta), Arial, sans-serif;
+}
+
 ::selection { background: rgba(78,166,133,0.22); }
 
-.container-avinya { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
-.font-display { font-family: var(--font-cinzel), Georgia, serif; }
-.section-space { padding-block: 96px; }
-.grid-paper { background-image: linear-gradient(to right, rgba(11,32,56,0.035) 1px, transparent 1px); background-size: 56px 100%; }
+.container-avinya {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
 
-.hero-image {
-  background-image: linear-gradient(90deg, rgba(11,32,56,0.84), rgba(11,32,56,0.42) 45%, rgba(11,32,56,0.12)), url('/images/hero.jpg');
-  background-size: cover;
-  background-position: center;
+.font-display {
+  font-family: var(--font-cinzel), Georgia, serif;
+}
+
+.section-space { padding-block: 96px; }
+
+.grid-paper {
+  background-image: linear-gradient(to right, rgba(11,32,56,0.035) 1px, transparent 1px);
+  background-size: 56px 100%;
+}
+
+.hero-grid {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(247,181,56,0.12), transparent 24%),
+    radial-gradient(circle at 85% 70%, rgba(78,166,133,0.14), transparent 28%),
+    var(--alabaster);
+}
+
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid var(--border);
+  background: white;
+  box-shadow: 0 20px 60px rgba(11,32,56,0.10);
+}
+
+.image-frame img {
+  display: block;
+  width: 100%;
 }
 
 .hide-scrollbar::-webkit-scrollbar { display: none; }
@@ -33,5 +67,4 @@ body { margin: 0; background: var(--alabaster); color: var(--navy); font-family:
 @media (max-width: 640px) {
   .container-avinya { width: min(100% - 28px, 1180px); }
   .section-space { padding-block: 64px; }
-  .hero-image { background-position: 60% center; }
 }

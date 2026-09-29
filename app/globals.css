@@ -4,25 +4,36 @@
 
 :root {
   --navy: #0B2038;
+  --navy-soft: #173652;
   --teal: #4EA685;
+  --teal-deep: #2F705D;
   --amber: #F7B538;
   --terracotta: #E05A36;
   --alabaster: #FDFBF7;
+  --sand: #F4EFE7;
+  --mist: #EDF4EF;
   --border: #EAE6DF;
+  --white: #FFFFFF;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  background: var(--alabaster);
+}
 
 body {
   margin: 0;
   background: var(--alabaster);
   color: var(--navy);
   font-family: var(--font-jakarta), Arial, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
-::selection { background: rgba(78,166,133,0.22); }
+::selection {
+  background: rgba(78, 166, 133, 0.22);
+}
 
 .container-avinya {
   width: min(1180px, calc(100% - 40px));
@@ -33,27 +44,43 @@ body {
   font-family: var(--font-cinzel), Georgia, serif;
 }
 
-.section-space { padding-block: 96px; }
+.section-space {
+  padding-block: 104px;
+}
+
+.section-tight {
+  padding-block: 72px;
+}
 
 .grid-paper {
-  background-image: linear-gradient(to right, rgba(11,32,56,0.035) 1px, transparent 1px);
-  background-size: 56px 100%;
+  background:
+    linear-gradient(rgba(11, 32, 56, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 32, 56, 0.03) 1px, transparent 1px),
+    var(--sand);
+  background-size: 42px 42px;
 }
 
 .hero-grid {
   background:
-    radial-gradient(circle at 15% 15%, rgba(247,181,56,0.12), transparent 24%),
-    radial-gradient(circle at 85% 70%, rgba(78,166,133,0.14), transparent 28%),
+    radial-gradient(circle at 12% 18%, rgba(247,181,56,0.14), transparent 24%),
+    radial-gradient(circle at 88% 72%, rgba(78,166,133,0.16), transparent 28%),
     var(--alabaster);
+}
+
+.navy-glow {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(78,166,133,0.16), transparent 24%),
+    radial-gradient(circle at 85% 75%, rgba(247,181,56,0.12), transparent 24%),
+    var(--navy);
 }
 
 .image-frame {
   position: relative;
   overflow: hidden;
-  border-radius: 32px;
+  border-radius: 34px;
   border: 1px solid var(--border);
-  background: white;
-  box-shadow: 0 20px 60px rgba(11,32,56,0.10);
+  background: var(--white);
+  box-shadow: 0 24px 70px rgba(11, 32, 56, 0.10);
 }
 
 .image-frame img {
@@ -66,5 +93,6 @@ body {
 
 @media (max-width: 640px) {
   .container-avinya { width: min(100% - 28px, 1180px); }
-  .section-space { padding-block: 64px; }
+  .section-space { padding-block: 68px; }
+  .section-tight { padding-block: 54px; }
 }

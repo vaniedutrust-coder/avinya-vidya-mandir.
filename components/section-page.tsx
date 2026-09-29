@@ -17,12 +17,12 @@ const defaultFeatures = [
 
 export function SectionPage({
   eyebrow, title, description, accent = "green", image = "/images/classroom.jpg",
-  secondaryImage = "/images/life.jpg", intro, features = defaultFeatures, bullets = [], cta = "Explore Avinya"
+  secondaryImage = "/images/life.jpg", intro, features = defaultFeatures, bullets = [], cta = "Explore Avinya", children
 }: {
   eyebrow: string; title: string; description: string; accent?: PageAccent; image?: string;
   secondaryImage?: string; intro?: string;
   features?: readonly (readonly [typeof Sparkles, string, string])[];
-  bullets?: string[]; cta?: string;
+  bullets?: string[]; cta?: string; children?: React.ReactNode;
 }) {
   const colour = accentMap[accent];
   const soft = accentSoftMap[accent];
@@ -51,6 +51,8 @@ export function SectionPage({
           </div>
         </div>
       </section>
+
+      {children && <section className="section-space bg-white"><div className="container-avinya">{children}</div></section>}
 
       <section className="section-space bg-white">
         <div className="container-avinya grid gap-14 lg:grid-cols-[.72fr_1.28fr] lg:items-start">

@@ -1,5 +1,4 @@
 import { SectionPage } from "../../components/section-page";
-
 export default function Page() {
-  return <SectionPage eyebrow="Gallery" title="Life Through Our Lens" description="A curated gallery of real Avinya classrooms, activities, campus spaces and celebrations." />;
+  return <SectionPage accent="green" eyebrow="Gallery" title="Life through our lens." description="A visual collection of real classrooms, activities, campus spaces and everyday moments at Avinya Vidya Mandir." intro="Photography should show the school as it really feels: children learning, teachers guiding, spaces being explored and a community growing together." image="/images/life.jpg" secondaryImage="/images/discovery.jpg" bullets={["Smart learning spaces","Play and movement","Discovery activities","Classroom moments","Campus and events"]} cta="View the gallery" />;
 }

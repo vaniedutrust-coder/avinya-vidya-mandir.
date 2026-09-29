@@ -5,13 +5,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "brand-navy": "#112A3A",
+        "brand-navy": "#1F5B46",
+        "brand-ink": "#173C35",
+        "brand-green": "#1F5B46",
+        "brand-orange": "#E85B2A",
+        "brand-gold": "#C99624",
         "brand-navy-soft": "#294656",
-        "brand-teal": "#6F8F84",
-        "brand-teal-deep": "#2F5D50",
+        "brand-teal": "#1F5B46",
+        "brand-teal-deep": "#1F5B46",
         "brand-teal-soft": "#E8F0EC",
-        "brand-amber": "#B78B43",
-        "brand-amber-deep": "#8E6A2E",
+        "brand-amber": "#C99624",
+        "brand-amber-deep": "#9A7216",
         "brand-amber-soft": "#F3EBDD",
         "brand-terracotta": "#B66A55",
         "brand-terracotta-soft": "#F4E6E0",

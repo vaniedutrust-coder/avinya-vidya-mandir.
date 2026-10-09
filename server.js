@@ -27,12 +27,12 @@ try {
 function getEditablePages() {
   try {
     return fs.readdirSync(ROOT)
-      .filter(f => f.endsWith('.html') && f !== 'admin.html')
+      .filter(f => f.endsWith('.html') && f !== 'admin.html' && f !== 'gallery.html')
       .sort();
   } catch (e) {
     return [
       'index.html', 'about.html', 'academics.html', 'admissions.html',
-      'campus.html', 'careers.html', 'contact.html', 'gallery.html',
+      'campus.html', 'careers.html', 'contact.html',
       'news-events.html', 'parents.html', 'student-life.html', 'alumni.html',
       'calendar.html', 'robotics-lab.html', 'mandatory-disclosure.html',
       'privacy-policy.html', 'terms.html', '404.html'
@@ -799,6 +799,13 @@ const server = http.createServer(async (req, res) => {
   let safePath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '');
   if (safePath === '/' || safePath === '') {
     safePath = '/index.html';
+  }
+
+  // Decommissioned gallery: 301 permanent redirect to homepage
+  if (safePath === '/gallery' || safePath === '/gallery.html' || safePath === '/gallery/') {
+    res.statusCode = 301;
+    res.setHeader('Location', '/');
+    return res.end();
   }
 
   // Ensure absolute resolution stays strictly within ROOT directory

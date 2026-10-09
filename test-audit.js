@@ -47,7 +47,7 @@ async function runAudit() {
   assert(allImagesOnDisk, 'All 81 web images and thumbnails verified on disk');
 
   // 2. Test All 19 HTML Pages and Core Assets
-  console.log('\n[2] Testing All 19 HTML Pages & Core Web Assets...');
+  console.log('\n[2] Testing Active HTML Pages & Core Web Assets...');
 
   const pages = [
     '/',
@@ -57,7 +57,6 @@ async function runAudit() {
     '/admissions.html',
     '/campus.html',
     '/student-life.html',
-    '/gallery.html',
     '/contact.html',
     '/news-events.html',
     '/mandatory-disclosure.html',
@@ -84,6 +83,17 @@ async function runAudit() {
       assert(res.status === 200, `Page/Asset ${p} returned HTTP 200`);
     } catch (e) {
       assert(false, `Page/Asset ${p} fetch failed: ${e.message}`);
+    }
+  }
+
+  // 2b. Test Gallery Decommissioning 301 Permanent Redirect
+  console.log('\n[2b] Verifying Gallery Decommissioning (301 Permanent Redirect to /)...');
+  for (const gp of ['/gallery', '/gallery.html']) {
+    try {
+      const res = await fetch(`${BASE_URL}${gp}`, { redirect: 'manual' });
+      assert(res.status === 301 && res.headers.get('location') === '/', `${gp} returns HTTP 301 redirect to /`);
+    } catch (e) {
+      assert(false, `Redirect test for ${gp} failed: ${e.message}`);
     }
   }
 

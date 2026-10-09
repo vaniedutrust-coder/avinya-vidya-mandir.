@@ -132,60 +132,62 @@
     <span class="ambient-leaf leaf-5"></span>
   </div>
 
-  <!-- SITE HEADER / NAVIGATION -->
-  <header class="site-header" id="top">
-    <div class="header-inner container">
-      <a href="index.html" class="brand-link" aria-label="Avinya Vidya Mandir Home">
-        <img src="assets/logo/logo-nav.png" alt="Avinya Vidya Mandir Crest" class="brand-logo" width="46" height="46">
-        <div class="brand-text">
-          <span class="brand-name">Avinya Vidya Mandir</span>
-          <span class="brand-motto">Rooted in Values &middot; Rising in Excellence</span>
-        </div>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Main Navigation">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="academics.html" class="nav-link">Academics</a>
-        <a href="student-life.html" class="nav-link">Student Life</a>
-        <a href="about.html" class="nav-link">About &amp; Faculty</a>
-        <a href="campus.html" class="nav-link">Campus</a>
-        <a href="admissions.html" class="nav-link">Admissions</a>
-        <a href="news-events.html" class="nav-link">News &amp; Calendar</a>
-        <a href="parents.html" class="nav-link active">Parent Corner</a>
-        <a href="careers.html" class="nav-link">Careers</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="header-actions">
-        <a href="admissions.html#apply-now" class="btn btn-gold btn-sm">Admissions Open &rarr;</a>
-        <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-          <span></span><span></span><span></span>
-        </button>
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div class="top-bar-notice">
+        <span class="badge-tag">Parent Corner</span>
+        <span>Partnership in Learning &bull; Transparent Communication &amp; Daily Engagement</span>
       </div>
-    </div>
-  </header>
-
-  <!-- MOBILE NAVIGATION DRAWER -->
-  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-    <div class="mobile-drawer-content">
-      <nav class="mobile-nav">
-        <a href="index.html" class="mobile-link">Home</a>
-        <a href="academics.html" class="mobile-link">Academics</a>
-        <a href="student-life.html" class="mobile-link">Student Life</a>
-        <a href="about.html" class="mobile-link">About &amp; Faculty</a>
-        <a href="campus.html" class="mobile-link">Campus</a>
-        <a href="admissions.html" class="mobile-link">Admissions</a>
-        <a href="news-events.html" class="mobile-link">News &amp; Calendar</a>
-        <a href="parents.html" class="mobile-link active">Parent Corner</a>
-        <a href="careers.html" class="mobile-link">Careers</a>
-        <a href="contact.html" class="mobile-link">Contact</a>
-      </nav>
-      <div class="mobile-drawer-actions">
-        <a href="admissions.html" class="btn btn-gold btn-block">Admissions Open 2026&ndash;27 &rarr;</a>
-        <button class="btn btn-outline btn-block open-erp-modal">Launch Parent ERP</button>
+      <div class="top-bar-contact">
+        <a href="https://maps.app.goo.gl/TPAtMcJsk3GB8f8L8" target="_blank" rel="noopener" class="top-bar-link" title="Open Google Maps Location">
+          📍 35-17/2 Virander Nagar Burari
+        </a>
+        <a href="tel:+919911102005" class="top-bar-link">📞 +91 9911102005</a>
+        <a href="mailto:admin@avinyaschool.com" class="top-bar-link">✉️ admin@avinyaschool.com</a>
+        <a href="https://avinyaschool.dharamgraphics.in/" target="_blank" rel="noopener" class="top-bar-tour-btn">
+          🌐 360° Virtual Tour
+        </a>
       </div>
     </div>
   </div>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <img src="assets/logo/logo-nav.png" alt="Avinya Crest" class="brand-crest">
+          <div class="brand-text">
+            <span class="brand-title">Avinya Vidya Mandir</span>
+            <span class="brand-subtitle">Rooted in Values · Rising in Excellence</span>
+          </div>
+        </a>
+
+        <button class="mobile-toggle" aria-label="Toggle navigation">☰</button>
+
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="academics.html" class="nav-link">Academics</a></li>
+          <li class="nav-item"><a href="admissions.html" class="nav-link">Admissions</a></li>
+          <li class="nav-item"><a href="campus.html" class="nav-link">Campus</a></li>
+          <li class="nav-item"><a href="student-life.html" class="nav-link">Student Life</a></li>
+          <li class="nav-item"><a href="calendar.html" class="nav-link">Calendar</a></li>
+          <li class="nav-item"><a href="parents.html" class="nav-link active">Parents</a></li>
+          <li class="nav-item"><a href="careers.html" class="nav-link">Careers</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a href="https://avinyaschool.dharamgraphics.in/" target="_blank" rel="noopener" class="btn-tour-360" title="Experience 360 Degree Virtual Tour">
+            <span>🌐</span> 360° Tour
+          </a>
+          <button class="btn btn-primary btn-sm open-enquiry-modal" data-open-modal="inquiry">Apply Online</button>
+        </div>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <!-- ==========================================================================
@@ -1156,92 +1158,80 @@
     </section>
   </main>
 
-  <!-- ==========================================================================
-       SITE FOOTER
-       ========================================================================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-col footer-brand-col">
-        <div class="footer-logo-row">
-          <img src="assets/logo/logo-nav.png" alt="Avinya Vidya Mandir Logo" class="footer-logo" width="48" height="48">
-          <div>
-            <h3 class="footer-school-name">Avinya Vidya Mandir</h3>
-            <span class="footer-motto">Learn &bull; Grow &bull; Shine</span>
+  <!-- Standard School Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/logo/logo-nav.png" alt="Avinya Crest" class="footer-crest">
+          <div class="footer-name">Avinya Vidya Mandir</div>
+          <div class="footer-motto">“Rooted in Values, Rising in Excellence”</div>
+          <p class="footer-desc">
+            A premier foundational and progressive K-12 school on a 1-acre green campus at 35-17/2 Virander Nagar Burari Delhi 110084. Under the aegis of Vani Educational Foundation.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Overview</a></li>
+            <li><a href="about.html">About &amp; Leadership</a></li>
+            <li><a href="academics.html">Academics &amp; CBSE K-12</a></li>
+            <li><a href="admissions.html">Admissions 2026-27</a></li>
+            <li><a href="campus.html">1-Acre Campus Facilities</a></li>
+            <li><a href="student-life.html">Student Life &amp; Activities</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Explore &amp; Legal</h4>
+          <ul class="footer-links">
+            <li><a href="https://avinyaschool.dharamgraphics.in/" target="_blank" rel="noopener">🌐 360° Virtual Tour</a></li>
+            <li><a href="news-events.html">News &amp; Circulars</a></li>
+            <li><a href="mandatory-disclosure.html">CBSE Disclosures</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="admin.html">Staff &amp; Admin Login</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Campus Address</h4>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📍</span>
+            <span>
+              <a href="https://maps.app.goo.gl/TPAtMcJsk3GB8f8L8" target="_blank" rel="noopener" style="color:#d8e5f3;">
+                35-17/2 Virander Nagar Burari Delhi 110084
+              </a>
+            </span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">📞</span>
+            <span><a href="tel:+919911102005" style="color:#d8e5f3;">+91 9911102005</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">✉️</span>
+            <span><a href="mailto:admin@avinyaschool.com" style="color:#d8e5f3;">admin@avinyaschool.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-icon">⏰</span>
+            <span>Mon – Sat: 8:00 AM – 3:30 PM</span>
           </div>
         </div>
-        <p class="footer-desc">
-          A foundation-first K-8 school expanding toward K-12 in Burari, Delhi. Transparent parent partnership, nurturing classrooms, robust sports turf, and an inspiring senior horizon.
-        </p>
-        <div class="footer-address-pill">
-          <span class="icon">&#128205;</span>
-          <span>35-17/2 Virander Nagar Burari Delhi 110084</span>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 Avinya Vidya Mandir (Vani Avitya Mandir). All Rights Reserved. Aligned with CBSE Curriculum.
         </div>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">The Journey</h4>
-        <ul class="footer-links">
-          <li><a href="index.html#journey">Kindergarten (Ages 3–5)</a></li>
-          <li><a href="index.html#journey">Primary Years (Grades 1–5)</a></li>
-          <li><a href="index.html#journey">Middle School (Grades 6–8)</a></li>
-          <li><a href="index.html#spotlight-k12">Senior School (K–12 Vision)</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">School Life &amp; Hub</h4>
-        <ul class="footer-links">
-          <li><a href="student-life.html">Student Life &amp; Clubs</a></li>
-          <li><a href="student-life.html#houses">4-House System</a></li>
-          <li><a href="student-life.html#sports">Sports Academy</a></li>
-          <li><a href="parents.html">Parent Corner &amp; ERP</a></li>
-          <li><a href="news-events.html">News &amp; Circulars</a></li>
-          <li><a href="alumni.html">Alumni Network</a></li>
-          <li><a href="careers.html">Careers &amp; Recruitment</a></li>
-          <li><a href="mandatory-disclosure.html">CBSE Mandatory Disclosure</a></li>
-          <li><a href="parents.html#calendar">Academic Calendar 2026&ndash;27</a></li>
-          <li><a href="campus.html">Campus &amp; Grounds</a></li>
-          <li><button type="button" class="open-360-modal" style="background: none; border: none; color: inherit; font: inherit; padding: 0; cursor: pointer;">360&deg; Virtual Tour &#8635;</button></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4 class="footer-col-title">Contact &amp; Admissions</h4>
-        <ul class="footer-contact-list">
-          <li>
-            <a href="tel:+919911102005" class="footer-contact-link">
-              <span class="f-icon">&#128222;</span>
-              <strong>+91 9911102005</strong>
-            </a>
-          </li>
-          <li>
-            <a href="mailto:admin@avinyaschool.com" class="footer-contact-link">
-              <span class="f-icon">&#9993;&#65039;</span>
-              <span>admin@avinyaschool.com</span>
-            </a>
-          </li>
-          <li>
-            <div class="footer-contact-item">
-              <span class="f-icon">&#127963;</span>
-              <span>Near Transport Authority, Burari, Delhi 110084</span>
-            </div>
-          </li>
-          <li class="footer-btn-item">
-            <button class="btn btn-gold btn-block btn-sm open-tour-modal">Book Campus Visit</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p class="copyright">&copy; 2026 Avinya Vidya Mandir, Burari. All Rights Reserved.</p>
-        <div class="footer-bottom-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Admissions Policy</a>
-        <a href="mandatory-disclosure.html">CBSE Disclosure</a>
-          <span>CBSE Curriculum &bull; Directorate of Education Delhi Recognised</span>
-          <a href="#top" class="back-to-top">Back to Top &uarr;</a>
+        <div style="display:flex; gap:1.25rem;">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="calendar.html">Calendar</a>
+          <a href="sitemap.xml">Sitemap</a>
+          <a href="terms.html">Terms</a>
+          <a href="mandatory-disclosure.html">Statutory</a>
+          <a href="https://maps.app.goo.gl/TPAtMcJsk3GB8f8L8" target="_blank" rel="noopener">Google Map</a>
+          <a href="admin.html">Admin Portal</a>
         </div>
       </div>
     </div>
@@ -1397,11 +1387,54 @@
     </div>
   </div>
 
+  <!-- Modal: Admission Inquiry -->
+  <div class="modal-backdrop" id="inquiry-modal">
+    <div class="modal-dialog">
+      <button class="modal-close" aria-label="Close modal">✕</button>
+      <div class="modal-header">
+        <h3>Admission Inquiry 2026–2027</h3>
+        <p>Register your interest for Playgroup, Nursery, LKG, UKG, or Class 1. Founders fee waivers apply.</p>
+      </div>
+      <form id="inquiry-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="student_name">Student Full Name *</label>
+            <input type="text" id="student_name" name="student_name" class="form-control" required placeholder="e.g. Aarav Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="grade_applied">Grade Applied For *</label>
+            <select id="grade_applied" name="grade_applied" class="form-control" required>
+              <option value="">Select Grade</option>
+              <option value="Playgroup">Playgroup (Age 2–3)</option>
+              <option value="Nursery">Nursery (Age 3–4)</option>
+              <option value="LKG">LKG (Age 4–5)</option>
+              <option value="UKG">UKG (Age 5–6)</option>
+              <option value="Class 1">Class 1 (Age 6+)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="parent_name">Parent / Guardian Name *</label>
+            <input type="text" id="parent_name" name="parent_name" class="form-control" required placeholder="e.g. Rajesh Sharma">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="parent_phone">Phone / WhatsApp Number *</label>
+            <input type="tel" id="parent_phone" name="parent_phone" class="form-control" required placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group form-full">
+            <label class="form-label" for="parent_email">Email Address *</label>
+            <input type="email" id="parent_email" name="parent_email" class="form-control" required placeholder="parent@example.com">
+          </div>
+          <div class="form-group form-full" style="margin-top:0.5rem;">
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Submit Admission Inquiry</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <!-- FLOATING ERP TOAST NOTIFICATION CONTAINER -->
   <div class="erp-toast" id="erpToast" role="status" aria-live="polite"></div>
 
-  <!-- Interactive JavaScript -->
-  
   <!-- Floating Accessibility Toolbar (WCAG AAA) -->
   <button id="a11yTriggerBtn" class="a11y-trigger-btn" aria-label="Open Accessibility Toolbar" aria-expanded="false" title="Accessibility Options">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1444,14 +1477,17 @@
         <button id="a11yDyslexiaSwitch" class="a11y-switch-btn" aria-label="Toggle Dyslexia-Friendly Font"></button>
       </div>
       <div class="a11y-toggle-item">
-        <span class="a11y-toggle-text">Highlight Links</span>
-        <button id="a11yLinksSwitch" class="a11y-switch-btn" aria-label="Toggle Highlight Links"></button>
+        <span class="a11y-toggle-text">Underline Links</span>
+        <button id="a11yLinksSwitch" class="a11y-switch-btn" aria-label="Toggle Underline Links"></button>
       </div>
     </div>
 
-    <button id="a11yResetBtn" class="a11y-reset-btn">Reset All Settings</button>
+    <div style="margin-top: 14px; text-align: right;">
+      <button id="a11yResetBtn" class="btn btn-outline btn-sm" style="font-size: 0.8rem; padding: 4px 10px;">Reset Settings</button>
+    </div>
   </div>
 
+  <script src="script.js"></script>
   <script src="visual-editor.js"></script>
 </body>
 </html>

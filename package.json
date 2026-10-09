@@ -1,0 +1,26 @@
+{
+  "name": "avinya-vidya-mandir-website",
+  "version": "1.0.0",
+  "description": "Official High-Performance Website & Administrative Platform for Avinya Vidya Mandir (Vani Avitya Mandir), Burari, Delhi",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "audit": "node test-audit.js"
+  },
+  "keywords": [
+    "school",
+    "education",
+    "cbse",
+    "avinya-vidya-mandir",
+    "vani-avitya-mandir",
+    "burari-delhi"
+  ],
+  "author": "Avinya Vidya Mandir Technical Desk",
+  "license": "UNLICENSED",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

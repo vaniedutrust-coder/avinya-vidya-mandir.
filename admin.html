@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrative Portal &amp; Management Hub — Avinya Vidya Mandir</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+  <!-- Google Fonts: Fraunces + Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Dedicated Admin Portal Styling */
+    .admin-body {
+      background-color: #f8f6f0;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    .admin-header {
+      background: var(--navy-900);
+      color: #FFFFFF;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(11, 35, 65, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+
+    .admin-brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      background: #FFFFFF;
+      border-radius: 50%;
+      padding: 2px;
+    }
+
+    .admin-brand h1 {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      margin: 0;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    .admin-brand span {
+      font-size: 0.75rem;
+      color: var(--gold-400);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .admin-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .admin-user-pill {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #FFFFFF;
+    }
+
+    .admin-nav-tabs {
+      background: #FFFFFF;
+      border-bottom: 1px solid rgba(11, 35, 65, 0.1);
+      padding: 0 24px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .admin-tab-btn {
+      background: none;
+      border: none;
+      padding: 16px 18px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .admin-tab-btn:hover {
+      color: var(--navy-900);
+    }
+
+    .admin-tab-btn.active {
+      color: var(--navy-900);
+      border-bottom-color: var(--saffron-600);
+      font-weight: 700;
+    }
+
+    .admin-main {
+      padding: 28px 24px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .kpi-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      border: 1px solid rgba(11, 35, 65, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .kpi-val {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy-900);
+      line-height: 1.1;
+    }
+
+    .admin-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      border: 1px solid rgba(11, 35, 65, 0.08);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .admin-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .admin-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      color: var(--navy-900);
+      margin: 0;
+    }
+
+    .admin-table-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid #ECECEC;
+    }
+
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+
+    .admin-table th {
+      background: #F4F6F9;
+      color: var(--navy-900);
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 2px solid #E2E8F0;
+      white-space: nowrap;
+    }
+
+    .admin-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #EDF2F7;
+      vertical-align: middle;
+    }
+
+    .admin-table tr:hover {
+      background-color: #FAFCFE;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-PENDING, .status-NEW, .status-UNREAD { background: #FFF3E0; color: #E65100; }
+    .status-REVIEWED, .status-SHORTLISTED { background: #E8F5E9; color: #2E7D32; }
+    .status-VISIT_SCHEDULED, .status-CONFIRMED, .status-INTERVIEW_SCHEDULED { background: #E1F5FE; color: #0277BD; }
+    .status-ENROLLED, .status-HIRED, .status-RESOLVED { background: #E8F5E9; color: #1B5E20; }
+    .status-REJECTED, .status-CANCELLED { background: #FFEBEE; color: #C62828; }
+
+    .action-btn {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid #D1D5DB;
+      background: #FFFFFF;
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+
+    .action-btn:hover {
+      border-color: var(--navy-900);
+      color: var(--navy-900);
+    }
+
+    .action-btn.primary {
+      background: var(--navy-900);
+      color: #FFFFFF;
+      border-color: var(--navy-900);
+    }
+
+    .action-btn.primary:hover {
+      background: var(--saffron-600);
+      border-color: var(--saffron-600);
+    }
+
+    .admin-select, .admin-input {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #D1D5DB;
+      font-size: 0.88rem;
+      font-family: inherit;
+    }
+
+    /* Modal Styling */
+    .admin-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-modal.open {
+      display: flex;
+    }
+
+    .admin-modal-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 580px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-modal-head {
+      background: var(--navy-900);
+      color: #FFFFFF;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-modal-body {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Page Editor Grid */
+    .editor-page-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .editor-page-card {
+      background: #FDFBF7;
+      border: 1px solid #EADBCC;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .editor-page-card:hover {
+      border-color: var(--saffron-600);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    /* SEO Score Banner */
+    .seo-score-banner {
+      background: linear-gradient(135deg, var(--navy-900) 0%, #153e6b 100%);
+      color: #FFFFFF;
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .seo-score-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 6px solid var(--emerald-600);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .seo-score-circle span:first-child {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .seo-score-circle span:last-child {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--gold-400);
+      letter-spacing: 0.05em;
+    }
+
+    .seo-checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .seo-check-item {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <!-- AUTH GATE MODAL -->
+  <div id="authGate" style="position: fixed; inset: 0; background: var(--navy-900); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+    <div style="background: #FFFFFF; padding: 36px; border-radius: 16px; width: 90%; max-width: 420px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+      <img src="assets/logo/logo-nav.png" alt="Avinya Crest" style="width: 68px; margin: 0 auto 16px;">
+      <h2 style="font-family: var(--font-serif); color: var(--navy-900); margin: 0 0 6px;">Staff Authentication</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0 0 24px;">Admissions, Campus Tours, Careers &amp; Visual CMS</p>
+
+      <form id="loginForm" style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--navy-900);">Username</label>
+          <input type="text" id="loginUser" class="admin-input" style="width: 100%; box-sizing: border-box; margin-top: 4px;" value="admin" required>
+        </div>
+        <div>
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--navy-900);">Password</label>
+          <input type="password" id="loginPass" class="admin-input" style="width: 100%; box-sizing: border-box; margin-top: 4px;" value="Avinya@2026!" required>
+        </div>
+        <div id="loginErr" style="color: #C62828; font-size: 0.82rem; display: none;"></div>
+        <button type="submit" class="action-btn primary" style="justify-content: center; padding: 12px; font-size: 0.95rem; margin-top: 8px;">
+          Unlock Leadership Portal →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="admin-header">
+    <a href="index.html" class="admin-brand">
+      <img src="assets/logo/logo-nav.png" alt="Avinya Crest">
+      <div>
+        <h1>Avinya Vidya Mandir</h1>
+        <span>Admissions &amp; Leadership Suite</span>
+      </div>
+    </a>
+
+    <div class="admin-top-actions">
+      <a href="index.html" target="_blank" class="action-btn" style="background: rgba(255,255,255,0.15); color: #FFF; border: none;">
+        🌐 Live Site ↗
+      </a>
+      <div class="admin-user-pill">
+        <span>👤</span>
+        <strong id="adminUserName">Director Desk</strong>
+      </div>
+      <button id="logoutBtn" class="action-btn" style="background: rgba(255,255,255,0.15); color: #FFF; border: none;">
+        Log Out
+      </button>
+    </div>
+  </header>
+
+  <!-- 7 TABS NAVIGATION -->
+  <nav class="admin-nav-tabs">
+    <button class="admin-tab-btn active" data-tab="tab-overview">📊 Overview</button>
+    <button class="admin-tab-btn" data-tab="tab-admissions">📋 Admissions Desk (<span id="tabCountAdmissions">0</span>)</button>
+    <button class="admin-tab-btn" data-tab="tab-tours">🚌 Campus Tours (<span id="tabCountTours">0</span>)</button>
+    <button class="admin-tab-btn" data-tab="tab-careers">💼 Careers &amp; Resumes (<span id="tabCountJobs">0</span>)</button>
+    <button class="admin-tab-btn" data-tab="tab-contact">✉️ Contact Messages (<span id="tabCountMessages">0</span>)</button>
+    <button class="admin-tab-btn" data-tab="tab-editor">✏️ Visual Page Editor</button>
+    <button class="admin-tab-btn" data-tab="tab-seo">⚡ SEO &amp; Speed Audit</button>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <main class="admin-main">
+
+    <!-- TAB 1: OVERVIEW -->
+    <section id="tab-overview" class="admin-tab-content">
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div>
+            <div class="kpi-label">Total Inquiries</div>
+            <div class="kpi-val" id="kpiTotalAdmissions">0</div>
+          </div>
+          <span style="font-size: 2.2rem;">📋</span>
+        </div>
+        <div class="kpi-card">
+          <div>
+            <div class="kpi-label">Pending Review</div>
+            <div class="kpi-val" id="kpiPendingAdmissions" style="color: var(--saffron-600);">0</div>
+          </div>
+          <span style="font-size: 2.2rem;">⏳</span>
+        </div>
+        <div class="kpi-card">
+          <div>
+            <div class="kpi-label">Campus Walkthroughs</div>
+            <div class="kpi-val" id="kpiTotalTours" style="color: var(--sky-600);">0</div>
+          </div>
+          <span style="font-size: 2.2rem;">🚌</span>
+        </div>
+        <div class="kpi-card">
+          <div>
+            <div class="kpi-label">Faculty Applicants</div>
+            <div class="kpi-val" id="kpiTotalJobs" style="color: var(--emerald-600);">0</div>
+          </div>
+          <span style="font-size: 2.2rem;">💼</span>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2 class="admin-card-title">Recent Admissions Inquiries (2026–2027 Cohort)</h2>
+          <button class="action-btn primary" onclick="switchTab('tab-admissions')">View All Inquiries →</button>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>App No</th>
+                <th>Student</th>
+                <th>Parent</th>
+                <th>Grade</th>
+                <th>Phone</th>
+                <th>Locality</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="overviewRecentAdmissions">
+              <tr><td colspan="7" style="text-align: center;">Loading inquiries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: ADMISSIONS DESK -->
+    <section id="tab-admissions" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2 class="admin-card-title">Admissions Inquiries Management</h2>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <input type="text" id="admissionsSearch" class="admin-input" placeholder="Search by student, parent, phone..." oninput="filterAdmissionsTable()">
+            <select id="admissionsGradeFilter" class="admin-select" onchange="loadAdmissions()">
+              <option value="ALL">All Grades</option>
+              <option value="Playgroup">Playgroup</option>
+              <option value="Nursery">Nursery</option>
+              <option value="LKG">LKG</option>
+              <option value="UKG">UKG</option>
+              <option value="Class 1">Class 1</option>
+            </select>
+            <select id="admissionsStatusFilter" class="admin-select" onchange="loadAdmissions()">
+              <option value="ALL">All Statuses</option>
+              <option value="PENDING">Pending</option>
+              <option value="CONTACTED">Contacted</option>
+              <option value="VISIT_SCHEDULED">Visit Scheduled</option>
+              <option value="ENROLLED">Enrolled</option>
+              <option value="REJECTED">Rejected</option>
+            </select>
+            <a href="/api/admin/export/admissions" class="action-btn primary">📥 Export CSV</a>
+          </div>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>App No</th>
+                <th>Student Name</th>
+                <th>Parent Name</th>
+                <th>Contact</th>
+                <th>Grade</th>
+                <th>Locality</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admissionsTableBody">
+              <tr><td colspan="8" style="text-align: center;">Loading admissions data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CAMPUS TOURS -->
+    <section id="tab-tours" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2 class="admin-card-title">Campus Walkthrough Bookings (1-Acre Campus)</h2>
+          <a href="/api/admin/export/tours" class="action-btn primary">📥 Export Tours CSV</a>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Booking Ref</th>
+                <th>Parent Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Tour Date</th>
+                <th>Time Slot</th>
+                <th>Grade Interest</th>
+                <th>Attendees</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="toursTableBody">
+              <tr><td colspan="10" style="text-align: center;">Loading bookings...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: CAREERS & RESUMES -->
+    <section id="tab-careers" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2 class="admin-card-title">Faculty Recruitment &amp; Resumes Hub</h2>
+          <a href="/api/admin/export/careers" class="action-btn primary">📥 Export Candidates CSV</a>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>App ID</th>
+                <th>Candidate Name</th>
+                <th>Position Applied</th>
+                <th>Experience</th>
+                <th>Qualification</th>
+                <th>Contact</th>
+                <th>Resume Document</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="careersTableBody">
+              <tr><td colspan="9" style="text-align: center;">Loading candidate applications...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CONTACT MESSAGES -->
+    <section id="tab-contact" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h2 class="admin-card-title">Inbound Contact Messages &amp; Helpdesk</h2>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Ticket ID</th>
+                <th>Sender</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Category</th>
+                <th>Message Content</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="contactTableBody">
+              <tr><td colspan="8" style="text-align: center;">Loading contact messages...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 6: VISUAL PAGE EDITOR -->
+    <section id="tab-editor" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+          <h2 class="admin-card-title">In-Browser Visual Page Editor Hub</h2>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">
+            Select any page below to launch the live inline visual editor. Click into any text or heading to modify copy, swap images with one click from our 80+ school photo library, and publish updates safely. An automated timestamped backup is preserved on every save!
+          </p>
+        </div>
+
+        <div style="background: #eef7f2; border-left: 4px solid var(--emerald-600); padding: 14px 18px; border-radius: 8px; margin: 16px 0; font-size: 0.86rem; color: var(--navy-900); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <strong>🎨 Visual Editor Features:</strong> Click-to-edit copy &bull; Image Swapper with 81 real photo presets &bull; Live Preview mode &bull; Section Components &bull; Automated rollbacks.
+          </div>
+          <button onclick="loadPagesForEditor()" class="action-btn primary">🔄 Refresh Pages</button>
+        </div>
+
+        <div class="editor-page-grid" id="editorPagesGrid">
+          <div style="grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--text-muted);">Loading pages...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 7: SEO & SPEED AUDIT -->
+    <section id="tab-seo" class="admin-tab-content" style="display: none;">
+      <div class="admin-card">
+        <div class="seo-score-banner">
+          <div>
+            <span style="background: rgba(212,175,55,0.25); color: var(--gold-400); padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">Technical SEO &amp; Speed Suite</span>
+            <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 8px 0 6px;">School Ecosystem Optimization Health</h2>
+            <p style="font-size: 0.9rem; opacity: 0.88; margin: 0; max-width: 600px;">
+              Live programmatic verification across all pages, sitemap index, robots directives, Open Graph cards, schema structured data, and server caching.
+            </p>
+          </div>
+          <div class="seo-score-circle">
+            <span id="seoOverallScoreNum">98%</span>
+            <span>Grade A+</span>
+          </div>
+        </div>
+
+        <!-- Technical Checklist Grid -->
+        <div class="seo-checklist-grid">
+          <div class="seo-check-item">
+            <span style="font-size: 1.3rem;">🚀</span>
+            <div>
+              <div style="font-size: 0.85rem; color: var(--navy-900); font-weight: 600;">Native Gzip Engine</div>
+              <div style="font-size: 0.74rem; color: #2E7D32; font-weight: 700;">Active (node:zlib)</div>
+            </div>
+          </div>
+          <div class="seo-check-item">
+            <span style="font-size: 1.3rem;">⚡</span>
+            <div>
+              <div style="font-size: 0.85rem; color: var(--navy-900); font-weight: 600;">HTTP 304 ETags</div>
+              <div style="font-size: 0.74rem; color: #2E7D32; font-weight: 700;">Conditional Caching Active</div>
+            </div>
+          </div>
+          <div class="seo-check-item">
+            <span style="font-size: 1.3rem;">🗺️</span>
+            <div>
+              <div style="font-size: 0.85rem; color: var(--navy-900); font-weight: 600;">Sitemap.xml Index</div>
+              <div style="font-size: 0.74rem; color: #2E7D32; font-weight: 700;" id="seoCountSitemap">Pages Verified</div>
+            </div>
+          </div>
+          <div class="seo-check-item">
+            <span style="font-size: 1.3rem;">🤖</span>
+            <div>
+              <div style="font-size: 0.85rem; color: var(--navy-900); font-weight: 600;">Robots.txt Directive</div>
+              <div style="font-size: 0.74rem; color: #2E7D32; font-weight: 700;">Configured &amp; Verified</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+          <h3 style="font-family: var(--font-serif); color: var(--navy-900); margin: 0;">Comprehensive Live Page SEO Audit</h3>
+          <button onclick="loadSeoAudit()" class="action-btn primary">🔄 Re-run Full Live Audit</button>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Page Target</th>
+                <th>Title Length</th>
+                <th>Meta Description</th>
+                <th>Open Graph</th>
+                <th>Twitter Card</th>
+                <th>Schema JSON-LD</th>
+                <th>Images &amp; Alt</th>
+                <th>Audit Score</th>
+              </tr>
+            </thead>
+            <tbody id="seoTableBody">
+              <tr><td colspan="8" style="text-align: center;">Loading audit results...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: MANAGE ADMISSION / COUNSELOR NOTES -->
+  <div id="notesModal" class="admin-modal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-head">
+        <h3 id="modalAppTitle" style="margin: 0; font-size: 1.05rem;">Manage Application</h3>
+        <button onclick="closeModal()" style="background: none; border: none; color: #FFF; font-size: 1.2rem; cursor: pointer;">✕</button>
+      </div>
+      <div class="admin-modal-body">
+        <input type="hidden" id="modalInquiryId">
+        <div style="margin-bottom: 14px;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--navy-900); display: block; margin-bottom: 4px;">Update Status</label>
+          <select id="modalStatusSelect" class="admin-select" style="width: 100%;">
+            <option value="PENDING">PENDING</option>
+            <option value="CONTACTED">CONTACTED</option>
+            <option value="VISIT_SCHEDULED">VISIT_SCHEDULED</option>
+            <option value="ENROLLED">ENROLLED</option>
+            <option value="REJECTED">REJECTED</option>
+          </select>
+        </div>
+        <div style="margin-bottom: 18px;">
+          <label style="font-size: 0.78rem; font-weight: 700; color: var(--navy-900); display: block; margin-bottom: 4px;">Counselor / Admin Notes</label>
+          <textarea id="modalNotesText" class="admin-input" style="width: 100%; height: 90px; box-sizing: border-box;"></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 8px;">
+          <button onclick="closeModal()" class="action-btn">Cancel</button>
+          <button onclick="saveModalChanges()" class="action-btn primary">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    let currentAdmissionsData = [];
+
+    // Authentication on load
+    async function checkAuth() {
+      try {
+        const res = await fetch('/api/auth/me');
+        if (res.ok) {
+          const d = await res.json();
+          if (d.authenticated) {
+            document.getElementById('authGate').style.display = 'none';
+            document.getElementById('adminUserName').textContent = d.user.fullName;
+            loadOverview();
+            return;
+          }
+        }
+      } catch (e) {}
+      document.getElementById('authGate').style.display = 'flex';
+    }
+
+    // Login
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const u = document.getElementById('loginUser').value;
+      const p = document.getElementById('loginPass').value;
+      const errBox = document.getElementById('loginErr');
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username: u, password: p })
+        });
+        const d = await res.json();
+        if (d.success) {
+          document.getElementById('authGate').style.display = 'none';
+          document.getElementById('adminUserName').textContent = d.user.fullName;
+          loadOverview();
+        } else {
+          errBox.textContent = d.error || 'Authentication failed';
+          errBox.style.display = 'block';
+        }
+      } catch (err) {
+        errBox.textContent = 'Server connection error';
+        errBox.style.display = 'block';
+      }
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', async () => {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      document.getElementById('authGate').style.display = 'flex';
+    });
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-tab') === tabId);
+      });
+      document.querySelectorAll('.admin-tab-content').forEach(sec => {
+        sec.style.display = sec.id === tabId ? 'block' : 'none';
+      });
+
+      if (tabId === 'tab-overview') loadOverview();
+      if (tabId === 'tab-admissions') loadAdmissions();
+      if (tabId === 'tab-tours') loadTours();
+      if (tabId === 'tab-careers') loadCareers();
+      if (tabId === 'tab-contact') loadContact();
+      if (tabId === 'tab-editor') loadPagesForEditor();
+      if (tabId === 'tab-seo') loadSeoAudit();
+    }
+
+    document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
+    });
+
+    // 1. Overview Loader
+    async function loadOverview() {
+      try {
+        const res = await fetch('/api/admin/overview');
+        if (!res.ok) return;
+        const d = await res.json();
+        const s = d.stats;
+
+        document.getElementById('kpiTotalAdmissions').textContent = s.totalAdmissions;
+        document.getElementById('kpiPendingAdmissions').textContent = s.pendingAdmissions;
+        document.getElementById('kpiTotalTours').textContent = s.totalTours;
+        document.getElementById('kpiTotalJobs').textContent = s.totalJobs;
+
+        document.getElementById('tabCountAdmissions').textContent = s.totalAdmissions;
+        document.getElementById('tabCountTours').textContent = s.totalTours;
+        document.getElementById('tabCountJobs').textContent = s.totalJobs;
+        document.getElementById('tabCountMessages').textContent = s.unreadMessages;
+
+        const tbody = document.getElementById('overviewRecentAdmissions');
+        tbody.innerHTML = '';
+        if (d.recentAdmissions.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;">No admissions recorded yet.</td></tr>';
+          return;
+        }
+
+        d.recentAdmissions.forEach(r => {
+          const tr = document.createElement('tr');
+          const cleanStatus = escapeHtml(r.status || 'PENDING');
+          tr.innerHTML = `
+            <td><strong>${escapeHtml(r.app_no)}</strong></td>
+            <td>${escapeHtml(r.student_name)}</td>
+            <td>${escapeHtml(r.parent_name)}</td>
+            <td><span class="status-badge" style="background:#E3F2FD; color:#1565C0;">${escapeHtml(r.grade_applied)}</span></td>
+            <td>${escapeHtml(r.parent_phone)}</td>
+            <td>${escapeHtml(r.locality || 'Burari')}</td>
+            <td><span class="status-badge status-${cleanStatus}">${cleanStatus.replace(/_/g, ' ')}</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    // 2. Admissions Loader
+    async function loadAdmissions() {
+      const grade = document.getElementById('admissionsGradeFilter').value;
+      const status = document.getElementById('admissionsStatusFilter').value;
+      const res = await fetch(`/api/admin/admissions?grade=${encodeURIComponent(grade)}&status=${encodeURIComponent(status)}`);
+      const d = await res.json();
+      currentAdmissionsData = d.admissions || [];
+      renderAdmissionsTable(currentAdmissionsData);
+    }
+
+    function renderAdmissionsTable(data) {
+      const tbody = document.getElementById('admissionsTableBody');
+      tbody.innerHTML = '';
+      if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No matching applications found.</td></tr>';
+        return;
+      }
+
+      data.forEach(r => {
+        const tr = document.createElement('tr');
+        const cleanStatus = escapeHtml(r.status || 'PENDING');
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(r.app_no)}</strong></td>
+          <td>${escapeHtml(r.student_name)}</td>
+          <td>${escapeHtml(r.parent_name)}</td>
+          <td>${escapeHtml(r.parent_phone)}<br><small style="color:var(--text-muted);">${escapeHtml(r.parent_email)}</small></td>
+          <td><span class="status-badge" style="background:#E3F2FD; color:#1565C0;">${escapeHtml(r.grade_applied)}</span></td>
+          <td>${escapeHtml(r.locality || '—')}</td>
+          <td><span class="status-badge status-${cleanStatus}">${cleanStatus.replace(/_/g, ' ')}</span></td>
+          <td>
+            <button class="action-btn primary btn-manage-inquiry">Manage</button>
+          </td>
+        `;
+        const btn = tr.querySelector('.btn-manage-inquiry');
+        btn.addEventListener('click', () => {
+          openNotesModal(r.id, r.app_no, r.status, r.counselor_notes || '');
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterAdmissionsTable() {
+      const term = document.getElementById('admissionsSearch').value.toLowerCase();
+      const filtered = currentAdmissionsData.filter(r => 
+        r.student_name.toLowerCase().includes(term) ||
+        r.parent_name.toLowerCase().includes(term) ||
+        r.parent_phone.includes(term) ||
+        r.app_no.toLowerCase().includes(term)
+      );
+      renderAdmissionsTable(filtered);
+    }
+
+    function openNotesModal(id, appNo, status, notes) {
+      document.getElementById('modalInquiryId').value = id;
+      document.getElementById('modalAppTitle').textContent = `Manage Application: ${appNo}`;
+      document.getElementById('modalStatusSelect').value = status;
+      document.getElementById('modalNotesText').value = notes;
+      document.getElementById('notesModal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('notesModal').classList.remove('open');
+    }
+
+    async function saveModalChanges() {
+      const id = document.getElementById('modalInquiryId').value;
+      const status = document.getElementById('modalStatusSelect').value;
+      const notes = document.getElementById('modalNotesText').value;
+
+      await fetch(`/api/admin/admissions/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status, notes })
+      });
+      closeModal();
+      loadAdmissions();
+      loadOverview();
+    }
+
+    // 3. Tours Loader
+    async function loadTours() {
+      const res = await fetch('/api/admin/tours');
+      const d = await res.json();
+      const tbody = document.getElementById('toursTableBody');
+      tbody.innerHTML = '';
+      if (!d.tours || d.tours.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;">No campus tours booked yet.</td></tr>';
+        return;
+      }
+
+      d.tours.forEach(r => {
+        const tr = document.createElement('tr');
+        const cleanStatus = escapeHtml(r.status || 'CONFIRMED');
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(r.booking_ref)}</strong></td>
+          <td>${escapeHtml(r.parent_name)}</td>
+          <td>${escapeHtml(r.parent_phone)}</td>
+          <td>${escapeHtml(r.parent_email)}</td>
+          <td>${escapeHtml(r.preferred_date)}</td>
+          <td>${escapeHtml(r.preferred_time_slot)}</td>
+          <td>${escapeHtml(r.grade_interest)}</td>
+          <td>${escapeHtml(r.attendee_count)} visitors</td>
+          <td><span class="status-badge status-${cleanStatus}">${cleanStatus}</span></td>
+          <td>
+            <button class="action-btn btn-confirm-tour">Confirm</button>
+            <button class="action-btn btn-cancel-tour">Cancel</button>
+          </td>
+        `;
+        tr.querySelector('.btn-confirm-tour').addEventListener('click', () => updateTour(r.id, 'CONFIRMED'));
+        tr.querySelector('.btn-cancel-tour').addEventListener('click', () => updateTour(r.id, 'CANCELLED'));
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function updateTour(id, status) {
+      await fetch(`/api/admin/tours/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      loadTours();
+      loadOverview();
+    }
+
+    // 4. Careers Loader
+    async function loadCareers() {
+      const res = await fetch('/api/admin/careers');
+      const d = await res.json();
+      const tbody = document.getElementById('careersTableBody');
+      tbody.innerHTML = '';
+      if (!d.candidates || d.candidates.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;">No faculty applications yet.</td></tr>';
+        return;
+      }
+
+      d.candidates.forEach(r => {
+        const tr = document.createElement('tr');
+        const resumeLink = r.resume_filename 
+          ? `<a href="/uploads/resumes/${encodeURIComponent(r.resume_filename)}" target="_blank" rel="noopener noreferrer" class="action-btn">📄 Download Resume</a>`
+          : '<span style="color:#999;">No Resume</span>';
+        const cleanStatus = escapeHtml(r.status || 'NEW');
+
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(r.app_id)}</strong></td>
+          <td>${escapeHtml(r.candidate_name)}</td>
+          <td><span class="status-badge" style="background:#EDE7F6; color:#512DA8;">${escapeHtml(r.position_applied)}</span></td>
+          <td>${escapeHtml(r.experience_years)} years</td>
+          <td>${escapeHtml(r.qualification)}</td>
+          <td>${escapeHtml(r.phone)}<br><small style="color:var(--text-muted);">${escapeHtml(r.email)}</small></td>
+          <td>${resumeLink}</td>
+          <td><span class="status-badge status-${cleanStatus}">${cleanStatus}</span></td>
+          <td>
+            <button class="action-btn btn-shortlist-job">Shortlist</button>
+            <button class="action-btn btn-hire-job">Hire</button>
+          </td>
+        `;
+        tr.querySelector('.btn-shortlist-job').addEventListener('click', () => updateJob(r.id, 'SHORTLISTED'));
+        tr.querySelector('.btn-hire-job').addEventListener('click', () => updateJob(r.id, 'HIRED'));
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function updateJob(id, status) {
+      await fetch(`/api/admin/careers/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      loadCareers();
+      loadOverview();
+    }
+
+    // 5. Contact Messages Loader
+    async function loadContact() {
+      const res = await fetch('/api/admin/contact');
+      const d = await res.json();
+      const tbody = document.getElementById('contactTableBody');
+      tbody.innerHTML = '';
+      if (!d.messages || d.messages.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">No contact messages yet.</td></tr>';
+        return;
+      }
+
+      d.messages.forEach(r => {
+        const tr = document.createElement('tr');
+        const cleanStatus = escapeHtml(r.status || 'NEW');
+        tr.innerHTML = `
+          <td><strong>${escapeHtml(r.ticket_id || 'TICK-'+r.id)}</strong></td>
+          <td>${escapeHtml(r.name)}</td>
+          <td>${escapeHtml(r.email)}</td>
+          <td>${escapeHtml(r.phone || '—')}</td>
+          <td><span class="status-badge" style="background:#FFF9C4; color:#F57F17;">${escapeHtml(r.category || 'GENERAL')}</span></td>
+          <td style="max-width:320px;"><strong>${escapeHtml(r.subject || '')}</strong><br>${escapeHtml(r.message)}</td>
+          <td><span class="status-badge status-${cleanStatus}">${cleanStatus}</span></td>
+          <td>
+            <button class="action-btn btn-resolve-contact">Resolve</button>
+          </td>
+        `;
+        tr.querySelector('.btn-resolve-contact').addEventListener('click', () => updateContact(r.id, 'RESOLVED'));
+        tbody.appendChild(tr);
+      });
+    }
+
+    async function updateContact(id, status) {
+      await fetch(`/api/admin/contact/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status })
+      });
+      loadContact();
+      loadOverview();
+    }
+
+    // 6. Visual Page Editor Loader
+    async function loadPagesForEditor() {
+      const res = await fetch('/api/editor/pages');
+      const d = await res.json();
+      const grid = document.getElementById('editorPagesGrid');
+      grid.innerHTML = '';
+      if (!d.pages || d.pages.length === 0) {
+        grid.innerHTML = '<div style="grid-column:1/-1; text-align:center;">No editable pages found.</div>';
+        return;
+      }
+
+      d.pages.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'editor-page-card';
+        const kbSize = (p.sizeBytes / 1024).toFixed(1);
+        card.innerHTML = `
+          <div>
+            <div style="font-weight:700; color:var(--navy-900); font-size:1rem; margin-bottom:4px;">${p.filename}</div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">${p.title}</div>
+            <div style="font-size:0.75rem; color:#777; margin-bottom:16px;">
+              📦 ${kbSize} KB &bull; 🛡️ ${p.backupsCount} Backups
+            </div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <a href="${p.filename}?editor=true" target="_blank" class="action-btn primary" style="width:100%; justify-content:center;">
+              ✏️ Launch Visual Editor ↗
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // 7. Live SEO & Speed Audit Loader
+    async function loadSeoAudit() {
+      const tbody = document.getElementById('seoTableBody');
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;">Running live technical SEO & speed analysis across all pages...</td></tr>';
+
+      try {
+        const res = await fetch('/api/seo-audit/run');
+        const d = await res.json();
+        if (!d.success) return;
+
+        document.getElementById('seoOverallScoreNum').textContent = `${d.overallScore}%`;
+        document.getElementById('seoCountSitemap').textContent = `${d.technicalChecklist.sitemap.urlsIndexed} Pages Verified`;
+
+        tbody.innerHTML = '';
+        d.pages.forEach(p => {
+          const tr = document.createElement('tr');
+          const titleBadge = p.titleLength >= 25 && p.titleLength <= 85 
+            ? `<span style="color:#2E7D32;">✅ ${p.titleLength} chars</span>` 
+            : `<span style="color:#C62828;">⚠️ ${p.titleLength} chars</span>`;
+
+          const descBadge = p.descriptionLength >= 70 && p.descriptionLength <= 250
+            ? `<span style="color:#2E7D32;">✅ ${p.descriptionLength} chars</span>`
+            : `<span style="color:#C62828;">⚠️ ${p.descriptionLength} chars</span>`;
+
+          const ogBadge = p.hasOg ? '✅ Complete' : '⚠️ Missing Image/Desc';
+          const twBadge = p.hasTwitter ? '✅ summary_card' : '⚠️ Missing';
+          const scBadge = p.hasSchema ? '✅ JSON-LD' : '⚠️ Missing';
+          const imgBadge = p.missingAltCount === 0 
+            ? `✅ All ${p.totalImages} Alt-tagged`
+            : `<span style="color:#C62828;">⚠️ ${p.missingAltCount} missing</span>`;
+
+          const scoreColor = p.score >= 90 ? '#2E7D32' : (p.score >= 70 ? '#E65100' : '#C62828');
+
+          tr.innerHTML = `
+            <td><strong>${p.filename}</strong></td>
+            <td>${titleBadge}</td>
+            <td>${descBadge}</td>
+            <td>${ogBadge}</td>
+            <td>${twBadge}</td>
+            <td>${scBadge}</td>
+            <td>${imgBadge}</td>
+            <td><strong style="color:${scoreColor}; font-size:1.1rem;">${p.score}%</strong></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; color:#C62828;">Failed to execute audit.</td></tr>';
+      }
+    }
+
+    // Initialize
+    checkAuth();
+  </script>
+</body>
+</html>

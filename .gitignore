@@ -1,0 +1,14 @@
+.DS_Store
+.vercel
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+scratch/
+backups/
+uploads/resumes/
+SCHOOL images /
+SCHOOL images/
+.env
+.env.local
+.env.development.local

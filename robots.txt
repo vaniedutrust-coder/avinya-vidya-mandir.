@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /backups/
+Disallow: /uploads/resumes/
+
+Sitemap: https://avinyaschool.com/sitemap.xml

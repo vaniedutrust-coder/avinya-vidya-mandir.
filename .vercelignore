@@ -1,0 +1,13 @@
+.DS_Store
+.git
+.github
+node_modules/
+scratch/
+backups/
+SCHOOL images /
+SCHOOL images/
+.env
+.env.local
+.env.development.local
+test-audit.js
+test-security.js

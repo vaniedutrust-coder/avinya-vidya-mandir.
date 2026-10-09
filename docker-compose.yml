@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  avinya-website:
+    build: .
+    container_name: avinya_school_app
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - HOST=0.0.0.0
+    volumes:
+      # Persistent SQLite database, candidate resumes, visual editor images, and automated rollbacks
+      - avinya_db_data:/app/school.db
+      - avinya_uploads_data:/app/uploads
+      - avinya_backups_data:/app/backups
+
+volumes:
+  avinya_db_data:
+  avinya_uploads_data:
+  avinya_backups_data:

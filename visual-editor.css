@@ -1,0 +1,388 @@
+/* ==========================================================================
+   AVINYA VIDYA MANDIR — IN-BROWSER VISUAL PAGE EDITOR STYLES
+   ========================================================================== */
+
+:root {
+  --editor-navy: #0b2341;
+  --editor-navy-dark: #07172c;
+  --editor-saffron: #df5433;
+  --editor-gold: #d4af37;
+  --editor-gold-light: #fef9e7;
+  --editor-green: #1b634e;
+  --editor-red: #c62828;
+  --editor-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Push down page body slightly when editor dock is visible */
+body.avinya-editor-active {
+  padding-top: 64px !important;
+  transition: padding-top 0.2s ease;
+}
+
+/* Floating Top Dock */
+#avinyaVisualEditorDock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--editor-navy-dark);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  z-index: 2147483640;
+  font-family: -apple-system, BlinkMacSystemFont, "Outfit", "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  user-select: none;
+  border-bottom: 2px solid var(--editor-gold);
+}
+
+.avinya-dock-left, .avinya-dock-center, .avinya-dock-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avinya-editor-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+}
+
+.avinya-editor-brand img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+}
+
+.avinya-page-badge {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--editor-gold);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.avinya-dirty-pill {
+  background: #df5433;
+  color: #FFF;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  display: none;
+}
+
+/* Mode Switch Toggle */
+.avinya-mode-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 3px;
+  border: 1px solid var(--editor-border);
+}
+
+.avinya-mode-btn {
+  background: none;
+  border: none;
+  color: #CCCCCC;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.avinya-mode-btn.active {
+  background: #FFFFFF;
+  color: var(--editor-navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Action Buttons */
+.avinya-dock-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--editor-border);
+  color: #FFFFFF;
+  padding: 7px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.avinya-dock-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.avinya-dock-btn.btn-save {
+  background: var(--editor-green);
+  border-color: #27ae60;
+  font-weight: 700;
+}
+
+.avinya-dock-btn.btn-save:hover {
+  background: #27ae60;
+}
+
+/* Inline Edit Highlighting */
+body.avinya-edit-mode [contenteditable="true"] {
+  outline: 2px dashed rgba(212, 175, 55, 0.35) !important;
+  outline-offset: 3px;
+  cursor: text;
+  transition: outline 0.15s ease, background 0.15s ease;
+}
+
+body.avinya-edit-mode [contenteditable="true"]:hover {
+  outline: 2px dashed var(--editor-gold) !important;
+  background-color: rgba(212, 175, 55, 0.04);
+}
+
+body.avinya-edit-mode [contenteditable="true"]:focus {
+  outline: 2px solid var(--editor-saffron) !important;
+  background-color: rgba(223, 84, 51, 0.03);
+}
+
+/* Editable Image Overlay Trigger */
+body.avinya-edit-mode img {
+  cursor: pointer;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+body.avinya-edit-mode img:hover {
+  outline: 3px solid var(--editor-gold);
+  opacity: 0.92;
+}
+
+/* Component Insertion Drawer */
+#avinyaComponentDrawer {
+  position: fixed;
+  top: 60px;
+  right: -420px;
+  width: 400px;
+  bottom: 0;
+  background: #FFFFFF;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.25);
+  z-index: 2147483630;
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Outfit", sans-serif;
+}
+
+#avinyaComponentDrawer.open {
+  right: 0;
+}
+
+.avinya-drawer-header {
+  padding: 16px 20px;
+  background: var(--editor-navy);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avinya-drawer-title {
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avinya-drawer-close {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.avinya-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.avinya-component-item {
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #FAFAFA;
+}
+
+.avinya-component-item:hover {
+  border-color: var(--editor-saffron);
+  background: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.avinya-component-title {
+  font-weight: 700;
+  color: var(--editor-navy);
+  font-size: 14px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.avinya-component-desc {
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Image Replace Modal */
+#avinyaImageModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2147483645;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Outfit", sans-serif;
+}
+
+#avinyaImageModal.active {
+  display: flex;
+}
+
+.avinya-modal-box {
+  background: #FFFFFF;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.avinya-modal-header {
+  background: var(--editor-navy);
+  color: #FFFFFF;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avinya-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.avinya-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.avinya-upload-dropzone {
+  border: 2px dashed #CBD5E1;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 20px;
+  background: #F8FAFC;
+}
+
+.avinya-upload-dropzone:hover, .avinya-upload-dropzone.dragover {
+  border-color: var(--editor-saffron);
+  background: rgba(223, 84, 51, 0.04);
+}
+
+.avinya-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 12px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.avinya-preset-thumb {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+  transition: all 0.2s ease;
+}
+
+.avinya-preset-thumb:hover {
+  border-color: var(--editor-gold);
+  transform: scale(1.04);
+}
+
+.avinya-preset-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Toast Alerts */
+.avinya-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--editor-navy);
+  color: #FFFFFF;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  font-weight: 600;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.avinya-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.avinya-toast.success {
+  border-left: 4px solid var(--editor-green);
+}
+
+.avinya-toast.error {
+  border-left: 4px solid var(--editor-red);
+}

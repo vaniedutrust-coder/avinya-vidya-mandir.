@@ -325,6 +325,22 @@ button, input, select, textarea {
   transform: scale(1.03);
 }
 
+.top-bar-wa {
+  color: #25D366 !important;
+  font-weight: 600;
+}
+
+.top-bar-wa:hover {
+  color: #4ade80 !important;
+}
+
+.top-bar-wa-icon {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
 /* ==========================================================================
    Main Header & Navigation
    ========================================================================== */
@@ -5018,6 +5034,138 @@ body.high-contrast .a11y-reset-btn {
     left: 16px;
     bottom: 74px;
     width: calc(100vw - 32px);
+  }
+}
+
+/* ==========================================================================
+   FLOATING QUICK ADMISSIONS CONNECT (WHATSAPP)
+   ========================================================================== */
+.floating-quick-connect {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9990;
+}
+
+.quick-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF !important;
+  font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill, 9999px);
+  box-shadow: 0 10px 28px rgba(18, 140, 126, 0.4), 0 4px 10px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid #FFFFFF;
+  position: relative;
+}
+
+.quick-whatsapp-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 14px 36px rgba(18, 140, 126, 0.55);
+  color: #FFFFFF !important;
+  text-decoration: none;
+}
+
+.quick-whatsapp-btn .wa-svg-icon {
+  width: 22px;
+  height: 22px;
+  fill: #FFFFFF;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.quick-whatsapp-btn .wa-text {
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Pulsing badge ring effect */
+.quick-whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid rgba(37, 211, 102, 0.6);
+  opacity: 0;
+  animation: waPulse 2.8s infinite cubic-bezier(0.24, 0, 0.38, 1);
+  pointer-events: none;
+}
+
+@keyframes waPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  60% { transform: scale(1.15); opacity: 0; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+.btn-green-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF !important;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill, 9999px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(18, 140, 126, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-green-whatsapp:hover {
+  background: #1eb857;
+  color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(18, 140, 126, 0.35);
+  text-decoration: none;
+}
+
+.btn-green-whatsapp .wa-svg-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .floating-quick-connect {
+    bottom: 16px;
+    right: 16px;
+  }
+  .quick-whatsapp-btn {
+    padding: 10px 16px;
+    font-size: 0.88rem;
+    gap: 8px;
+  }
+  .quick-whatsapp-btn .wa-svg-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .wa-text-full {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-quick-connect {
+    bottom: 14px;
+    right: 12px;
+  }
+  .quick-whatsapp-btn {
+    padding: 8px 14px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+  .quick-whatsapp-btn .wa-svg-icon {
+    width: 18px;
+    height: 18px;
   }
 }
 

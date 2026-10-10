@@ -5086,41 +5086,47 @@ body.high-contrast .a11y-reset-btn {
 /* Floating Accessibility Launcher Button */
 .a11y-trigger-btn {
   position: fixed;
-  bottom: 24px;
-  left: 24px;
+  bottom: 20px;
+  left: 20px;
   z-index: 9995;
   background: var(--navy);
   color: #FFFFFF;
-  border: 2px solid var(--gold);
+  border: 1.5px solid var(--gold);
   border-radius: var(--radius-full);
-  padding: 10px 18px;
-  font-size: 0.88rem;
+  padding: 6px 13px;
+  font-size: 0.78rem;
   font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(6, 36, 76, 0.28);
+  box-shadow: 0 4px 16px rgba(6, 36, 76, 0.22);
   transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.a11y-trigger-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
 .a11y-trigger-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   background: var(--navy-light);
-  box-shadow: 0 12px 30px rgba(6, 36, 76, 0.35);
+  box-shadow: 0 8px 22px rgba(6, 36, 76, 0.3);
 }
 
 .a11y-trigger-btn .a11y-icon {
-  font-size: 1.15rem;
+  font-size: 1rem;
 }
 
 /* Accessibility Control Drawer / Panel */
 .a11y-panel {
   position: fixed;
-  bottom: 84px;
-  left: 24px;
-  width: 330px;
-  max-width: calc(100vw - 48px);
+  bottom: 64px;
+  left: 20px;
+  width: 320px;
+  max-width: calc(100vw - 40px);
   background: #FFFFFF;
   border: 2px solid var(--navy);
   border-radius: var(--radius-lg);
@@ -5284,58 +5290,44 @@ body.high-contrast .a11y-reset-btn {
   background: #FFE0B2;
 }
 
-@media (max-width: 480px) {
-  .a11y-trigger-btn {
-    bottom: 20px;
-    left: 16px;
-    padding: 8px 14px;
-    font-size: 0.8rem;
-  }
-  .a11y-panel {
-    left: 16px;
-    bottom: 74px;
-    width: calc(100vw - 32px);
-  }
-}
-
 /* ==========================================================================
    FLOATING QUICK ADMISSIONS CONNECT (WHATSAPP)
    ========================================================================== */
 .floating-quick-connect {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 20px;
+  right: 20px;
   z-index: 9990;
 }
 
 .quick-whatsapp-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: #FFFFFF !important;
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 12px 22px;
+  font-size: 0.80rem;
+  padding: 7px 14px;
   border-radius: var(--radius-pill, 9999px);
-  box-shadow: 0 10px 28px rgba(18, 140, 126, 0.4), 0 4px 10px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 18px rgba(18, 140, 126, 0.32), 0 2px 6px rgba(0, 0, 0, 0.08);
   text-decoration: none;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 2px solid #FFFFFF;
+  border: 1.5px solid #FFFFFF;
   position: relative;
 }
 
 .quick-whatsapp-btn:hover {
-  transform: translateY(-4px) scale(1.04);
-  box-shadow: 0 14px 36px rgba(18, 140, 126, 0.55);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(18, 140, 126, 0.45);
   color: #FFFFFF !important;
   text-decoration: none;
 }
 
 .quick-whatsapp-btn .wa-svg-icon {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
   fill: #FFFFFF;
   flex-shrink: 0;
   display: inline-block;
@@ -5369,11 +5361,12 @@ body.high-contrast .a11y-reset-btn {
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: #FFFFFF !important;
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill, 9999px);
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
+  font-size: 0.85rem;
   text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 4px 14px rgba(18, 140, 126, 0.25);
@@ -5389,25 +5382,41 @@ body.high-contrast .a11y-reset-btn {
 }
 
 .btn-green-whatsapp .wa-svg-icon {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   fill: currentColor;
   flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
+  .a11y-trigger-btn {
+    bottom: 14px;
+    left: 12px;
+    padding: 5px 10px;
+    font-size: 0.74rem;
+    gap: 5px;
+  }
+  .a11y-trigger-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .a11y-panel {
+    left: 12px;
+    bottom: 56px;
+    width: calc(100vw - 24px);
+  }
   .floating-quick-connect {
-    bottom: 16px;
-    right: 16px;
+    bottom: 14px;
+    right: 12px;
   }
   .quick-whatsapp-btn {
-    padding: 10px 16px;
-    font-size: 0.88rem;
-    gap: 8px;
+    padding: 5px 11px;
+    font-size: 0.75rem;
+    gap: 5px;
   }
   .quick-whatsapp-btn .wa-svg-icon {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
   }
   .wa-text-full {
     display: none;
@@ -5415,18 +5424,34 @@ body.high-contrast .a11y-reset-btn {
 }
 
 @media (max-width: 480px) {
+  .a11y-trigger-btn {
+    bottom: 12px;
+    left: 10px;
+    padding: 4px 8px;
+    font-size: 0.69rem;
+    gap: 4px;
+  }
+  .a11y-trigger-btn svg {
+    width: 12px;
+    height: 12px;
+  }
+  .a11y-panel {
+    left: 10px;
+    bottom: 50px;
+    width: calc(100vw - 20px);
+  }
   .floating-quick-connect {
-    bottom: 14px;
-    right: 12px;
+    bottom: 12px;
+    right: 10px;
   }
   .quick-whatsapp-btn {
-    padding: 8px 14px;
-    font-size: 0.82rem;
-    gap: 6px;
+    padding: 4px 9px;
+    font-size: 0.70rem;
+    gap: 4px;
   }
   .quick-whatsapp-btn .wa-svg-icon {
-    width: 18px;
-    height: 18px;
+    width: 13px;
+    height: 13px;
   }
 }
 

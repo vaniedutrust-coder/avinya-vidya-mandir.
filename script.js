@@ -248,10 +248,10 @@ function initInquiryForm() {
         const result = await res.json();
         if (res.ok && result.success) {
           if (enquirySuccess) {
-            enquirySuccess.innerHTML = `✅ Thank you! Inquiry received with Ref: <strong>${result.appNo || result.app_no}</strong>. Our admissions team will reach out shortly.`;
+            enquirySuccess.innerHTML = `✅ Thank you! Admission enquiry received with Ref: <strong>${result.appNo || result.app_no}</strong>. Our admissions counselor will contact you within 24 working hours.`;
             enquirySuccess.classList.add('show');
           }
-          showToast(`Inquiry submitted! Application Ref: ${result.appNo || result.app_no}`);
+          showToast(`Admission enquiry received! Ref: ${result.appNo || result.app_no}`);
           enquiryForm.reset();
           setTimeout(() => {
             const modal = document.getElementById('enquiryModal');
@@ -302,7 +302,7 @@ function initInquiryForm() {
         });
         const result = await res.json();
         if (res.ok && result.success) {
-          showToast(`Application submitted! Application Ref: ${result.app_no}`);
+          showToast(`Admission enquiry received! Ref: ${result.app_no}`);
           form.reset();
           const modal = document.getElementById('inquiry-modal') || document.getElementById('enquiryModal');
           if (modal) {

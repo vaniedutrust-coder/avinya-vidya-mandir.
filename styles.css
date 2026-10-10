@@ -2394,6 +2394,28 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+  .nav-actions {
+    display: none !important;
+  }
+  .navbar {
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .brand-logo {
+    min-width: 0;
+    gap: 0.5rem;
+    max-width: calc(100% - 50px);
+  }
+  .brand-crest {
+    width: 38px;
+    height: 38px;
+  }
+  .brand-title {
+    font-size: 1.05rem;
+  }
+  .brand-subtitle {
+    font-size: 0.58rem;
+  }
   .hero-title {
     font-size: 2.35rem;
   }
@@ -9798,6 +9820,544 @@ body.high-contrast .a11y-reset-btn {
 @media (max-width: 768px) {
   .circular-cards-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   404 DETOUR PAGE & POPULAR PAGES SHOWCASE (PARITY ENHANCEMENT)
+   ========================================================================== */
+.detour-hero-section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(180deg, #FDFBF7 0%, #F8F5EE 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.detour-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+.detour-badge-wrap {
+  margin-bottom: 1rem;
+}
+
+.detour-oops-badge {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--emerald-700);
+  background: rgba(42, 133, 94, 0.12);
+  border: 1px solid rgba(42, 133, 94, 0.25);
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.detour-404-number {
+  display: flex;
+  align-items: baseline;
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 9vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  margin: 0.25rem 0 1rem;
+  letter-spacing: -0.03em;
+}
+
+.detour-404-number .num-4.orange {
+  color: #E66A23;
+  position: relative;
+}
+
+.detour-404-number .num-0.navy {
+  color: #06244C;
+  margin: 0 0.15ch;
+}
+
+.detour-404-number .num-4.green {
+  color: #2A855E;
+  position: relative;
+}
+
+.detour-404-number .sprout-icon {
+  font-size: 0.35em;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.detour-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.18;
+  margin-bottom: 1.1rem;
+}
+
+.detour-desc {
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+.detour-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn-detour-home {
+  background: #06244C;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 16px rgba(6, 36, 76, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.btn-detour-home:hover {
+  background: #09336b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 36, 76, 0.28);
+}
+
+.btn-detour-home .countdown-badge {
+  background: #E66A23;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.18rem 0.55rem;
+  border-radius: var(--radius-pill);
+  min-width: 28px;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.btn-detour-back {
+  background: #ffffff;
+  color: var(--navy-900);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid #dcd4c6;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-detour-back:hover {
+  background: #fdfbf7;
+  border-color: var(--navy-900);
+  transform: translateY(-2px);
+}
+
+.detour-redirect-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(42, 133, 94, 0.28);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1.15rem;
+  font-size: 0.88rem;
+  color: #1e6345;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.25rem;
+}
+
+.pulse-status-dot {
+  width: 9px;
+  height: 9px;
+  background-color: #2A855E;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 rgba(42, 133, 94, 0.4);
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(42, 133, 94, 0.5); }
+  70% { box-shadow: 0 0 0 8px rgba(42, 133, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 133, 94, 0); }
+}
+
+.btn-pause-toggle {
+  background: #edf5f0;
+  border: 1px solid #b8dfca;
+  color: #17543a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-pause-toggle:hover {
+  background: #2A855E;
+  color: #ffffff;
+  border-color: #2A855E;
+}
+
+.detour-contact-help {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.detour-contact-help a {
+  color: var(--navy-900);
+  font-weight: 700;
+}
+
+.detour-contact-help a:hover {
+  color: var(--saffron-600);
+  text-decoration: underline;
+}
+
+.detour-visual-card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detour-art-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 16px 44px rgba(13, 34, 56, 0.09);
+  border: 1px solid rgba(232, 223, 200, 0.6);
+  background: #ffffff;
+}
+
+/* Popular Pages Section */
+.popular-pages-section {
+  padding: clamp(3.5rem, 5vw, 5rem) 0 clamp(4rem, 6vw, 6rem);
+  background: #ffffff;
+}
+
+.popular-pages-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 2rem;
+}
+
+.popular-pages-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.15rem;
+}
+
+.popular-page-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+}
+
+.popular-page-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(230, 106, 35, 0.35);
+}
+
+.popular-card-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 1.15rem;
+}
+
+.popular-card-icon.icon-amber {
+  background: #FFF7ED;
+  border: 1px solid #FFEDD5;
+  color: #D97706;
+}
+
+.popular-card-icon.icon-green {
+  background: #F0FDF4;
+  border: 1px solid #DCFCE7;
+  color: #16A34A;
+}
+
+.popular-card-icon.icon-coral {
+  background: #FFF1F2;
+  border: 1px solid #FFE4E6;
+  color: #E11D48;
+}
+
+.popular-card-icon.icon-teal {
+  background: #F0FDFA;
+  border: 1px solid #CCFBF1;
+  color: #0D9488;
+}
+
+.popular-card-icon.icon-purple {
+  background: #FAF5FF;
+  border: 1px solid #F3E8FF;
+  color: #9333EA;
+}
+
+.popular-card-icon.icon-blue {
+  background: #EFF6FF;
+  border: 1px solid #DBEAFE;
+  color: #2563EB;
+}
+
+.popular-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  margin-bottom: 0.35rem;
+}
+
+.popular-card-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.popular-card-arrow {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  margin-top: auto;
+}
+
+.popular-page-card:hover .popular-card-arrow {
+  color: var(--saffron-600);
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   FULL-SPECTRUM RESPONSIVE ARCHITECTURE (5 DISPLAY TIERS)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   TIER 1: LARGE MONITORS, QHD & 4K (1441px to 2560px+)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1441px) {
+  :root {
+    --max-w: 1380px;
+  }
+  .container {
+    max-width: 1380px;
+    padding: 0 2.5rem;
+  }
+  .container-narrow {
+    max-width: 1020px;
+  }
+  .popular-pages-grid {
+    gap: 1.5rem;
+  }
+  .detour-art-img {
+    max-width: 520px;
+  }
+}
+
+@media (min-width: 1921px) {
+  :root {
+    --max-w: 1540px;
+  }
+  .container {
+    max-width: 1540px;
+    padding: 0 3.5rem;
+  }
+  .container-narrow {
+    max-width: 1140px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TIER 2: SMALL-SCREEN MONITOR / STANDARD DESKTOP (1201px to 1440px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .popular-pages-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TIER 3: 13-INCH LAPTOP & COMPACT DESKTOP (1025px to 1200px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .navbar {
+    gap: 0.65rem;
+  }
+  .brand-title {
+    font-size: 1.14rem;
+  }
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+  .brand-crest {
+    width: 42px;
+    height: 42px;
+  }
+  .nav-links {
+    gap: clamp(2px, 0.45vw, 6px);
+  }
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.15rem;
+  }
+  .nav-actions {
+    gap: 0.4rem;
+  }
+  .btn-tour-360 {
+    font-size: 0.78rem;
+    padding: 0.45rem 0.85rem;
+  }
+  .nav-actions .btn {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.95rem;
+  }
+  .popular-pages-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+  .detour-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TIER 4: HANDHELD TABLETS (769px to 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .detour-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  .detour-badge-wrap,
+  .detour-404-number,
+  .detour-btn-row {
+    justify-content: center;
+  }
+  .detour-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .detour-art-img {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .popular-pages-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .popular-pages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   TIER 5: MOBILE PHONES (320px to 768px & SUB-480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .detour-hero-section {
+    padding: 2.75rem 0 2rem;
+  }
+  .detour-title {
+    font-size: clamp(1.4rem, 5.2vw, 1.85rem);
+    line-height: 1.25;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+  .detour-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .detour-btn-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .btn-detour-home,
+  .btn-detour-back {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+  }
+  .detour-redirect-status {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.82rem;
+    padding: 0.45rem 0.85rem;
+    gap: 0.6rem;
+  }
+  .popular-pages-grid {
+    grid-template-columns: 1fr;
+    gap: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .detour-title {
+    font-size: 1.45rem;
+    word-break: normal;
+    overflow-wrap: normal;
+  }
+  .detour-404-number {
+    font-size: 4.8rem;
+  }
+  .popular-pages-title {
+    font-size: 1.55rem;
+    margin-bottom: 1.25rem;
+  }
+  .popular-page-card {
+    padding: 1.25rem 1rem;
+  }
+  .detour-redirect-status {
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+    border-radius: var(--radius-md);
   }
 }
 

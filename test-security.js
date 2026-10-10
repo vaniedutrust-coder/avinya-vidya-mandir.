@@ -1,6 +1,6 @@
 const http = require('node:http');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3000;
 const BASE_URL = `http://localhost:${PORT}`;
 
 async function runSecurityAudit() {

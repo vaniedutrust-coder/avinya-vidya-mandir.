@@ -144,6 +144,7 @@ function clearFailedLogin(ip) {
 }
 
 function checkPublicFormRateLimit(ip) {
+  if (ip === '127.0.0.1' || ip === '::1' || ip === '::ffff:127.0.0.1') return true;
   const now = Date.now();
   const entry = publicFormAttempts.get(ip);
   if (!entry || now > entry.resetTime) {
@@ -908,13 +909,13 @@ const server = http.createServer(async (req, res) => {
   const contentType = MIME_TYPES[ext] || 'application/octet-stream';
   const stat = fs.statSync(filePath);
 
-  // Cache headers
+  // Cache headers (production vs local development)
   if (['.jpg', '.jpeg', '.png', '.webp', '.svg', '.ico', '.woff', '.woff2'].includes(ext)) {
-    res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=86400');
+    res.setHeader('Cache-Control', process.env.VERCEL ? 'public, max-age=604800, stale-while-revalidate=86400' : 'no-cache, must-revalidate');
   } else if (['.css', '.js'].includes(ext)) {
-    res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=3600');
+    res.setHeader('Cache-Control', process.env.VERCEL ? 'public, max-age=86400, stale-while-revalidate=3600' : 'no-cache, must-revalidate');
   } else {
-    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
   }
 
   // ETag support
@@ -948,7 +949,7 @@ if (require.main === module) {
     console.log(`==================================================`);
     console.log(`🚀 Avinya Vidya Mandir Portal is Running!`);
     console.log(`📍 URL: http://localhost:${PORT}`);
-    console.log(`🏫 School: Avinya Vidya Mandir (Vani Avitya Mandir)`);
+    console.log(`🏫 School: Avinya Vidya Mandir`);
     console.log(`🌳 Campus: 1-Acre Green Campus, Burari, Delhi`);
     console.log(`📚 Offering: Playgroup to Class 1 (Annual K-12 CBSE Roadmap)`);
     console.log(`==================================================`);

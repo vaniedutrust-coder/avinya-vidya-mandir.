@@ -1,4 +1,4 @@
-# Avinya Vidya Mandir (Vani Avitya Mandir) — Official Web Portal
+# Avinya Vidya Mandir — Official Web Portal
 
 > **Motto:** *"Rooted in Values, Rising in Excellence"*  
 > **Campus:** 1-Acre Dedicated Green Campus, 35-17/2 Virander Nagar Burari Delhi 110084  

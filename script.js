@@ -1,5 +1,5 @@
 /**
- * Avinya Vidya Mandir (Vani Avitya Mandir) — Client Script
+ * Avinya Vidya Mandir — Client Script
  * Handles navigation, interactive modals, admissions calculator, lightbox, animations, and API requests.
  */
 

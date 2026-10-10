@@ -1,5 +1,5 @@
 # Avinya Vidya Mandir — Production Deployment Guide
-**School Entity:** Avinya Vidya Mandir (*Vani Avitya Mandir*)  
+**School Entity:** Avinya Vidya Mandir  
 **Campus:** 35-17/2 Virander Nagar Burari Delhi 110084  
 **Contact:** +91 9911102005 | admin@avinyaschool.com  
 **Virtual Tour:** https://avinyaschool.dharamgraphics.in/  

@@ -9,6 +9,8 @@ backups/
 uploads/resumes/
 SCHOOL images /
 SCHOOL images/
+school infra/
+infra/
 .env
 .env.local
 .env.development.local
